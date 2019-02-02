@@ -50,6 +50,16 @@ body {
   padding-top: 8px;
 
 }
+
+.column {
+  float: center;
+  width: 100%;
+  background: #F4A4A4;
+  height: 1000px;
+  color: white;
+  margin: 0 -5px;
+}
+
 .columnleft {
   float: left;
   width: 70%;
@@ -72,6 +82,13 @@ body {
   float: left;
   width: 23.2%;
   padding: 0 10px;
+}
+
+.columncardnew {
+  margin-top: 50px;
+  float: left;
+  width: 22%;
+  padding: 0 22px;
 }
 
 .columncardright {
