@@ -1,0 +1,98 @@
+body {
+  font-family: "Roboto", sans-serif;
+
+  background-color: #F8F8F8;
+}
+
+/* The sidebar menu */
+.sidenav {
+ height: 100%; /* Full-height: remove this if you want "auto" height */
+ width: 250px; /* Set the width of the sidebar */
+ position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+ z-index: 1; /* Stay on top */
+ top: 0; /* Stay at the top */
+ left: 0;
+ background-color: #111; /* Black */
+ overflow-x: hidden; /* Disable horizontal scroll */
+ padding-top: 20px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+ padding: 6px 8px 6px 16px;
+ text-decoration: none;
+ font-size: 25px;
+ color: #818181;
+ display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+ color: #F1F1F1;
+}
+
+/* Style page content */
+.main {
+ margin-left: 250px; /* Same as the width of the sidebar */
+
+
+}
+
+.header {
+ padding: 45px;
+ text-align: center;
+ background: #F08080;
+ color: white;
+ font-size: 30px;
+}
+
+.row {
+  padding-top: 8px;
+
+}
+.columnleft {
+  float: left;
+  width: 70%;
+  background: #E9967A;
+  height: 800px;
+  color: white;
+  margin: 0 -5px;
+}
+
+.columnright {
+  float: right;
+  width: 30%;
+  background: #F4A4A4;
+  height: 800px;
+  color: white;
+}
+
+.columncard {
+  margin-top: 50px;
+  float: left;
+  width: 23.2%;
+  padding: 0 10px;
+}
+
+.columncardright {
+  margin-top: 50px;
+  float: center;
+  width: 80%;
+  padding: 0 50px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  height: 250px;
+  text-align: center;
+  background-color: #F1F1F1;
+}
+
+.bigcard {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  height: 450px;
+  text-align: center;
+  background-color: #F1F1F1;
+}
