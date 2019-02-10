@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- Defining the language of the document -->
+<html lang="en">
+<head>
+<!-- Declaring the character encoding of the HTML file -->
+<meta charset="utf-8"/>
+<!-- This tag adds a title to the page -->
+<title>My Account, Try It Out: Skip the Changing Room!</title>
+<!-- This is linking the CSS page to the HTML -->
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+
+<body>
+  <!-- The navigation bar on the side containing links to the other pages -->
+  <div class = "sidenav">
+    <a href="homepage.html">EXPLORE</a>
+    <a href="#">NEW ITEMS</a>
+    <a href="#">MY ACCOUNT</a>
+  </div>
+
+  <!-- Page content -->
+  <div class = "main">
+    <div class = "header">
+      <h1>My Account</h1>
+    </div>
+    <div class = "row">
+      <div class="column">
+        <div class="columncard">
+          <div class="card">..</div>
+        </div>
+        <div class="columncard">
+          <div class="card">..</div>
+        </div>
+        <div class="columncard">
+          <div class="card">..</div>
+        </div>
+
+      </div>
+      
+    </div>
+  </div>
+</body>
+
+</html>
