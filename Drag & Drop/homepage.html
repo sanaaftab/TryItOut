@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- Defining the language of the document -->
+<html lang="en">
+<head>
+<!-- Declaring the character encoding of the HTML file -->
+<meta charset="utf-8"/>
+<!-- This tag adds a title to the page -->
+<title>Try It Out: Skip the Changing Room!</title>
+<!-- This is linking the CSS page to the HTML -->
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+
+<body>
+  <!--Drag'n'Drop script-->
+  <script>
+  function allowDrop(ev) {
+    ev.preventDefault();
+  }
+
+  function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+  }
+
+  <!--Find a way to also remove the clothing if dropped outside frame-->
+  function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    var nodeCopy = document.getElementById(data).cloneNode(true);
+    nodeCopy.id = "newId"; /* We cannot use the same ID */
+    ev.target.appendChild(nodeCopy);
+  }
+  </script>
+  <!-- The navigation bar on the side containing links to the other pages -->
+  <div class = "sidenav">
+    <a href="#">EXPLORE</a>
+    <a href="#">NEW ITEMS</a>
+    <a href="#">MY ACCOUNT</a>
+  </div>
+
+  <!-- Page content -->
+  <div class = "main">
+    <div class = "header">
+      <h1>EXPLORE</h1>
+    </div>
+    <div class = "row">
+      <div class="columnleft">
+        <div class="columncard">
+          <div class="card" ondragover="allowDrop(event)" ondrop="drop(event)">
+            <img id="pic" draggable="true" ondragstart="drag(event)"
+                 src="http://i63.tinypic.com/juz63c.jpg" alt=""
+                 height="200" width="225">
+          </div>
+        </div>
+        <div class="columncard">
+          <div class="card" ondragover="allowDrop(event)" ondrop="drop(event)">..</div>
+        </div>
+        <div class="columncard">
+          <div class="card" ondragover="allowDrop(event)" ondrop="drop(event)">..</div>
+        </div>
+        <div class="columncard">
+          <div class="card" ondragover="allowDrop(event)" ondrop="drop(event)">..</div>
+        </div>
+        <div class="columncard">
+          <div class="card" ondragover="allowDrop(event)" ondrop="drop(event)">..</div>
+        </div>
+        <div class="columncard">
+          <div class="card" ondragover="allowDrop(event)" ondrop="drop(event)">..</div>
+        </div>
+        <div class="columncard">
+          <div class="card" ondragover="allowDrop(event)" ondrop="drop(event)">..</div>
+        </div>
+        <div class="columncard">
+          <div class="card" ondragover="allowDrop(event)" ondrop="drop(event)">..</div>
+        </div>
+      </div>
+      <div class="columnright">
+        <div class="columncardright">
+          <div class="bigcard">..</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
