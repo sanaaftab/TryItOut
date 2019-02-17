@@ -62,19 +62,21 @@ body {
 
 .columnleft {
   float: left;
-  width: 70%;
+  width: 50%;
   background: #E9967A;
   height: 800px;
   color: white;
   margin: 0 -5px;
+  text-align: center;
 }
 
 .columnright {
   float: right;
-  width: 30%;
+  width: 50%;
   background: #F4A4A4;
   height: 800px;
   color: white;
+  text-align: center;
 }
 
 
@@ -93,12 +95,20 @@ body {
   padding: 0 22px;
 }
 
+.columncardOutfit{
+  margin-top: 50px;
+  float: center;
+  padding:0 22px;
+}
+
 .columncardright {
   margin-top: 50px;
   float: center;
   width: 80%;
   padding: 0 50px;
 }
+
+
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
@@ -111,7 +121,112 @@ body {
 .bigcard {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
   padding: 16px;
-  height: 450px;
+  height: 650px;
+  width: 576px;
   text-align: center;
+  float: center;
   background-color: #F1F1F1;
+}
+
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+
+/***************************************image slidshow**************************
+* {
+  box-sizing: border-box;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+  width: 70%;
+  margin-left: 80px;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 20%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+/* Position the "prev button" to the right */
+.prev {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* no of picture = no of columns side by side */
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
 }

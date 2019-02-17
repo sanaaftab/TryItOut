@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!-- Defining the language of the document -->
+<html lang="en">
+<head>
+<!-- Declaring the character encoding of the HTML file -->
+<meta charset="utf-8"/>
+<!-- This tag adds a title to the page -->
+<title>My Account, Try It Out: Skip the Changing Room!</title>
+<!-- This is linking the CSS page to the HTML -->
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+
+<body>
+  <!-- The navigation bar on the side containing links to the other pages -->
+  <div class = "sidenav">
+    <img src="sub-logo.png" alt="Logo subsitute" height="220px">
+    <a href="homepage.html">EXPLORE</a>
+    <a href="#">NEW ITEMS</a>
+    <a href="#">MY ACCOUNT</a>
+    <a href="#">Try it on</a>
+  </div>
+
+  <!-- Page content -->
+  <div class = "main">
+    <div class = "header">
+      <h1>My Account</h1>
+    </div>
+    <div class = "row">
+  <!--     <img src="avatar.png" alt="Avatar" class="avatar"> -->
+      <h1>Welcome user!</h1>
+      <div class="columnleft">
+        <h2>My Designs</h2>
+        <div class="container">
+          <div class="mySlides">
+            <div class="numbertext">1 / 2</div>
+            <img src="outfit-1.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">2 / 2</div>
+            <img src="outfit-2.jpg" style="width:100%">
+          </div>
+
+          <a class="prev" onclick="plusSlides(-1)">❮</a>
+          <a class="next" onclick="plusSlides(1)">❯</a>
+
+          <div class="caption-container">
+            <p id="caption"></p>
+          </div>
+          <div class="row">
+            <div class="column">
+              <!--https://www.newlook.com/row/mens/clothing/shirts/pale-blue-long-sleeve-denim-shirt-/p/595247345?comp=Browse
+              https://www.newlook.com/uk/mens/clothing/shirts/pale-blue-long-sleeve-denim-shirt-/p/595247345?comp=Browse-->
+              <img class="demo cursor" src="outfit-1.jpg" style="width:100%" onclick="currentSlide(1)" alt="outfit-1">
+            </div>
+            <div class="column">
+              <!--https://www.newlook.com/uk/mens/clothing/jackets-coats/dark-grey-jersey-sleeve-denim-jacket/p/611401103?comp=Browse-->
+              <img class="demo cursor" src="outfit-2.jpg" style="width:100%" onclick="currentSlide(2)" alt="outfit-2">
+            </div>
+
+        </div>
+      </div>
+
+
+            <script>
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+              showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+              showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+              var i;
+              var slides = document.getElementsByClassName("mySlides");
+              var dots = document.getElementsByClassName("demo");
+              var captionText = document.getElementById("caption");
+              if (n > slides.length) {slideIndex = 1}
+              if (n < 1) {slideIndex = slides.length}
+              for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+              }
+              for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex-1].style.display = "block";
+              dots[slideIndex-1].className += " active";
+              captionText.innerHTML = dots[slideIndex-1].alt;
+            }
+            </script>
+          </div>
+
+          <div class="columnright">
+            <h2>Favourites</h2>
+            <div class="columncard" style="width: 250px;">
+              <div class="card">
+                <img src="pale-blue-long-sleeve-denim-shirt-.jpg" alt="pale-blue-long-sleeve-denim-shirt" height="250px">
+              </div>
+            </div>
+
+          <div class="columncard" style="width: 250px;">
+            <div class="card">
+            <img src="pale-blue-long-sleeve-denim-shirt-.jpg" alt="pale-blue-long-sleeve-denim-shirt" height="250px">
+            </div>
+          </div>
+
+          <div class="columncard" style="width: 250px;">
+            <div class="card">
+            <img src="pale-blue-long-sleeve-denim-shirt-.jpg" alt="pale-blue-long-sleeve-denim-shirt" height="250px">
+            </div>
+          </div>
+
+          <div class="columncard" style="width: 250px;">
+            <div class="card">
+            <img src="pale-blue-long-sleeve-denim-shirt-.jpg" alt="pale-blue-long-sleeve-denim-shirt" height="250px">
+            </div>
+          </div>
+
+          <div class="columncard" style="width: 250px;">
+            <div class="card">
+            <img src="pale-blue-long-sleeve-denim-shirt-.jpg" alt="pale-blue-long-sleeve-denim-shirt" height="250px">
+            </div>
+          </div>
+
+          <div class="columncard" style="width: 250px;">
+            <div class="card">
+            <img src="pale-blue-long-sleeve-denim-shirt-.jpg" alt="pale-blue-long-sleeve-denim-shirt" height="250px">
+            </div>
+          </div>
+        </div>
+</body>
+
+</html>
