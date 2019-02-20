@@ -4,6 +4,10 @@ body {
   background-color: #F8F8F8;
 }
 
+.dragables {
+  height: 300px;
+  
+}
 
 #div1 {
   width: 350px;

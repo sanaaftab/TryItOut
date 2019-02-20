@@ -2,6 +2,7 @@
 
 var itemsBeingUsed = [];
 var numberOfItemsBeingUsed = 0;
+var lastDrag;
 
 var width = document.getElementById('container').offsetWidth;
 var height = document.getElementById('container').offsetHeight;
@@ -46,10 +47,11 @@ function allowDrop(ev) {
 
 function drag(ev) {
   ev.dataTransfer.setData("text", ev.target.id);
+  lastDrag = ev.target.id;
 }
 
 function drop(ev) {
-  var image = document.getElementById("drag1");
+  var image = document.getElementById(lastDrag);
   createRectangle(image);
 }
 
@@ -64,9 +66,10 @@ function createRectangle(image) {
   var rect = new Konva.Rect({
     x: 75,
     y: 60,
-    width: 300,
-    height: 300,
+    width: image.clientWidth,
+    height: image.clientHeight,
     fillPatternImage: image,
+    fillPatternRepeat: 'no-repeat',
     name: 'item',
     draggable: true
   });
