@@ -1,0 +1,14 @@
+To Whom It May Concern,
+
+I am contacting you to enquire about the use of your websites pictures such as different clothing items (e.g. Jackets, T-Shirts, Shirts, Pants etc).
+
+We are a team of student from the University Of Manchester in a Computer Science course. Our project includes the creation of a website (from now on referred to as "project-website"), and our chosen theme is the ability for users to upload a picture of themselves, drag and drop pieces of clothing onto their uploaded picture. Said picture icons will each be associated with the real direct link to your website store (all and any links used will use the .co.uk domain where available, .com else) so the user can then actually purchase there selected outfit.
+
+The use of all and any content taken from the website will only be manipulated in the manner of extracting the piece of clothing into a transparent background during creation and uploading the item onto the project-website where a resize feature will be provided to the user so they can resize said pieces of clothing to suit their (the users) own outline / body-type.
+
+Recapitulation:
+•	Permission to download of pictures of clothing items hosted on your website.
+•	Permission to store of pictures of clothing items hosted on your website onto the project-website server.
+•	Permission to manipulate of pictures of clothing items hosted on your website to the extend mentioned above (remove any coloured background, allow resizing of said picture using project-websites resize feature).
+
+It would be helpful if you could send us a formal letter stating the agreement or disagreement to the above-mentioned proposition. Please find attached an image of how the basic concept of the users perspective of how the drag and drop, as well as the resizing feature will be implemented on the project-website.
