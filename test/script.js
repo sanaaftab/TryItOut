@@ -51,7 +51,8 @@ function drag(ev) {
 }
 
 function drop(ev) {
-  var image = document.getElementById(lastDrag);
+  var image = new Image();
+  image.src = document.getElementById(lastDrag).src;
   createRectangle(image);
 }
 
@@ -66,9 +67,11 @@ function createRectangle(image) {
   var rect = new Konva.Rect({
     x: 75,
     y: 60,
-    width: image.clientWidth,
-    height: image.clientHeight,
+    width: image.width * (300 / image.height),
+    height: 300,
     fillPatternImage: image,
+    fillPatternScaleY: 300 / image.height,
+    fillPatternScaleX: 300 / image.height,
     fillPatternRepeat: 'no-repeat',
     name: 'item',
     draggable: true
