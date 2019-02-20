@@ -1,3 +1,8 @@
+//        DROPBOX
+
+var itemsBeingUsed = [];
+var numberOfItemsBeingUsed = 0;
+
 var width = document.getElementById('container').offsetWidth;
 var height = document.getElementById('container').offsetHeight;
 
@@ -10,27 +15,6 @@ var stage = new Konva.Stage({
 var layer = new Konva.Layer();
 stage.add(layer);
 
-var img = new Image();
-img.src = "shirt.png";
-/*
-if (img.height >= img.width){
-  var ratio = img.width/img.height;
-  img.height = 300;
-  img.width = 300*ratio;
-}
-*/
-
-var rect1 = new Konva.Rect({
-  x: 50,
-  y: 50,
-  width: 300,
-  height: 300,
-  fillPatternImage: img,
-  name: 'item',
-  draggable: true
-});
-layer.add(rect1);
-layer.draw();
 
 stage.on('click tap', function (e) {
   // if click on empty area - remove all transformers
@@ -53,3 +37,39 @@ stage.on('click tap', function (e) {
   tr.attachTo(e.target);
   layer.draw();
 })
+
+//--------------------------------------------------------------------------
+//                DRAG FEATURE
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  var image = document.getElementById("drag1");
+  createRectangle(image);
+}
+
+/* TODO:
+if (img.height >= img.width){
+  var ratio = img.width/img.height;
+  img.height = 300;
+  img.width = 300*ratio;
+}
+*/
+function createRectangle(image) {
+  var rect = new Konva.Rect({
+    x: 75,
+    y: 60,
+    width: 300,
+    height: 300,
+    fillPatternImage: image,
+    name: 'item',
+    draggable: true
+  });
+  layer.add(rect);
+  layer.draw();
+}

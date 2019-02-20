@@ -12,13 +12,19 @@
 
 </head>
 <body>
+
+<!-- THE DROPBOX -->
 <div id="dropbox">
   <div class="size" style="position: absolute;">
-    <img src="person.jpg" alt="a picture of a person">
+    <img id="personImg" src="person.jpg" alt="a picture of a person">
   </div>
-  <div class="size" style="position: absolute" id="container"></div>
+  <div class="size" style="position: absolute" id="container" ondrop="drop(event)" ondragover="allowDrop(event)">
+  </div>
   <script src="script.js"></script></script>
 </div>
+<br>
+
+<img id="drag1" src="shirt.png" draggable="true" ondragstart="drag(event)">
 
 </body>
 </html>
