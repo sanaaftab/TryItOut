@@ -6,7 +6,6 @@ body {
 
 .dragables {
   height: 300px;
-  
 }
 
 #div1 {
@@ -41,7 +40,6 @@ body {
 }
 
 #dropbox {
-  background-color: black;
   width: 450px;
   height: 550px;
   border-style: solid;

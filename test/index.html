@@ -15,17 +15,17 @@
 
 <!-- THE DROPBOX -->
 <div id="dropbox">
-  <div class="size" style="position: absolute;">
-    <img id="personImg" src="person.jpg" alt="a picture of a person">
-  </div>
-  <div class="size" style="position: absolute" id="container" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <div id="container" class="size" style="position: absolute" ondrop="drop(event)" ondragover="allowDrop(event)">
   </div>
   <script src="script.js"></script></script>
 </div>
 <br>
-
+<div class="upload-btn-wrapper">
+  <input type="file" name="myImage" accept="image/*"/>
+  <button class="button" onclick="uploadImage()">Upload a file</button>
+</div>
 <img id="drag1" class="dragables" src="shirt.png" draggable="true" ondragstart="drag(event)">
-<img id="drag2" class="dragables" src="../clothes/Hoody_2.png" draggable="true" ondragstart="drag(event)">
+<img id="drag2" class="dragables" src="Hoody_2.png" draggable="true" ondragstart="drag(event)">
 
 </body>
 </html>
