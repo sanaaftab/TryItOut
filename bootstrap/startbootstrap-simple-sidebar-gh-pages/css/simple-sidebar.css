@@ -196,7 +196,7 @@ div.scroll {
 .container {
   position: relative;
   width: 70%;
-  position: relative;
+  position:relative;
 }
 
 /* Hide the images by default */
@@ -214,7 +214,7 @@ div.scroll {
 .next {
   cursor: pointer;
   position: absolute;
-  top: 35%;
+  top: 20%;
   width: auto;
   padding: 16px;
   margin-top: -50px;
