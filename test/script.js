@@ -109,6 +109,7 @@ function drag(ev) {
 }
 
 function drop(ev) {
+  ev.preventDefault();
   var image = new Image();
   image.src = document.getElementById(lastDrag).src;
   createRectangle(image);
