@@ -1,0 +1,26 @@
+#container {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: transparent;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#personImg {
+  max-width: 100%;
+  max-height: 100%;
+  display:block;
+  margin:auto;
+  background-color: black;
+}
+
+.size {
+  width: 550px;
+  height: 650px;
+}
+
+#dropbox {
+  width: 550px;
+  height: 650px;
+}
