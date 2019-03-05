@@ -26,42 +26,7 @@ var pImage = new Image();
 pImage.src = 'person.jpg';
 pImage.onload = replaceImage;
 
-function replaceImage() {
-  if (personImage != null)
-    personImage.destroy();
-  var ratio = pImage.height / pImage.width;
-  var neededHeight, neededWidth;
-  var neededX, neededY;
-  var containerHeight = document.getElementById('container').offsetHeight;
-  var containerWidth = document.getElementById('container').offsetWidth;
-
-  if (ratio > containerHeight / containerWidth) {
-    neededHeight = containerHeight;
-    neededWidth = neededHeight / ratio;
-    neededX = (containerWidth - neededWidth) /2;
-    neededY = 0;
-  }
-  else {
-    neededWidth = containerWidth;
-    neededHeight = neededWidth * ratio;
-    neededY = 0
-    neededX = 0;
-  }
-
-  imageWidth = neededX + neededWidth;
-
-  personImage = new Konva.Image({
-      x: neededX,
-      y: neededY,
-      image: pImage,
-      width: neededWidth,
-      height: neededHeight,
-      name: 'personImage'
-    });
-  layer.add(personImage);
-  layer.draw();
-}
-
+//------------------------------------------------------------------
 stage.on('click tap', function (e) {
   // if click on empty area - remove all transformers
   if (e.target === stage || e.target.hasName('personImage')) {
@@ -106,10 +71,12 @@ function allowDrop(ev) {
   ev.preventDefault();
 }
 
+
 function drag(ev) {
   ev.dataTransfer.setData("text", ev.target.id);
   lastDrag = ev.target.src;
 }
+
 
 function drop(ev) {
   ev.preventDefault();
@@ -131,13 +98,64 @@ function createRectangle(image) {
     name: 'item',
     draggable: true
   });
+  itemsBeingUsed.push(rect);
   layer.add(rect);
   layer.draw();
 }
 
+
+function replaceImage() {
+  if (removeButton != null)
+    removeButton.destroy();
+
+  stage.find('Rect').destroy();
+  itemsBeingUsed = [];
+
+  if (personImage != null)
+    personImage.destroy();
+
+  var ratio = pImage.height / pImage.width;
+  var neededHeight, neededWidth;
+  var neededX, neededY;
+  var containerHeight = document.getElementById('container').offsetHeight;
+  var containerWidth = document.getElementById('container').offsetWidth;
+
+  if (ratio > containerHeight / containerWidth) {
+    neededHeight = containerHeight;
+    neededWidth = neededHeight / ratio;
+    neededX = (containerWidth - neededWidth) /2;
+    neededY = 0;
+  }
+  else {
+    neededWidth = containerWidth;
+    neededHeight = neededWidth * ratio;
+    neededY = 0
+    neededX = 0;
+  }
+
+  imageWidth = neededX + neededWidth;
+
+  personImage = new Konva.Image({
+      x: neededX,
+      y: neededY,
+      image: pImage,
+      width: neededWidth,
+      height: neededHeight,
+      name: 'personImage'
+    });
+  layer.add(personImage);
+  layer.draw();
+}
+
+
 function destroyRectangle(rectangle) {
   rectangle.destroy();
+  for (var i = 0; i <= itemsBeingUsed.length; i++)
+    if (itemsBeingUsed[i] === rectangle)
+      itemsBeingUsed.splice(i, 1);
+  alert(itemsBeingUsed.length);
 }
+
 
 function createRemoveButton(){
   removeButton = new Konva.Circle({
@@ -174,6 +192,7 @@ function createRemoveButton(){
   layer.add(removeButton);
   layer.draw();
 }
+
 
 function uploadImage() {
   if (document.querySelector('input[type=file]').files[0]); {
