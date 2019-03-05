@@ -5,6 +5,7 @@ var numberOfItemsBeingUsed = 0;
 var lastDrag;
 var selectedRectangle = null;
 var removeButton = null;
+var imageWidth;
 var personImage;
 var removeButtonImage = new Image();
 removeButtonImage.src = 'deleteButton.png';
@@ -43,9 +44,11 @@ function replaceImage() {
   else {
     neededWidth = containerWidth;
     neededHeight = neededWidth * ratio;
-    neededY = (containerHeight - neededHeight) /2;
+    neededY = 0
     neededX = 0;
   }
+
+  imageWidth = neededX + neededWidth;
 
   personImage = new Konva.Image({
       x: neededX,
@@ -138,7 +141,7 @@ function destroyRectangle(rectangle) {
 
 function createRemoveButton(){
   removeButton = new Konva.Circle({
-    x: document.getElementById('container').offsetWidth - 25,
+    x: imageWidth - 25,
     y: 20,
     radius: 18,
     fillPatternOffsetX: 50,
