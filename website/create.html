@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<!-- Defining the language of the document -->
+<html lang="en">
+<head>
+<!-- Declaring the character encoding of the HTML file -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- This tag adds a title to the page -->
+<title>Create</title>
+<!-- Bootstrap core CSS -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+  <link href="stylesheet.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- The navigation bar on the side containing links to the other pages -->
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <!--<div class="sidebar-heading">TRY IT OUT</div>-->
+      <img src = "logo.png" width = "250px">
+      <div class="list-group list-group-flush">
+        <a href="explore.html" class="list-group-item list-group-item-action bg-light">Explore</a>
+        <a href="newitems.html" class="list-group-item list-group-item-action bg-light">New Items</a>
+        <a href="create.html" class="list-group-item list-group-item-action bg-light">Create</a>
+        <a href="myaccount.html" class="list-group-item list-group-item-action bg-light">My Account</a>
+      </div>
+    </div>
+
+  <!-- Page content -->
+  <div id="page-content-wrapper">
+    <div class="container-fluid">
+      <div id="heading"><p class="mt-4">CREATE</p></div>
+    </div>
+    <div class = "row">
+<!--************************For the drag and drop*****************************-->
+      <div class="columnleft">
+
+        <link rel="stylesheet" type="text/css" href="dropboxstylesheet.css">
+        <script src="https://unpkg.com/konva@2.4.2/konva.min.js"></script>
+
+        <div id="dropbox">
+          <div id="container" class="size" style="position: absolute" ondrop="drop(event)" ondragover="allowDrop(event)">
+          </div>
+          <script src="dropboxscript.js"></script></script>
+        </div>
+        <br>
+
+        <div class="upload-btn-wrapper">
+          <input type="file" name="myImage" accept="image/*"/>
+          <button class="button" onclick="uploadImage()">Upload picture</button>
+        </div>
+
+      </div>
+
+      <div class="columnright">
+
+      <h1>Items</h1>
+      <div>
+        <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+        <button class="btn" onclick="filterSelection('cars')"> Favourites</button>
+      </div>
+      <div class="scroll">
+        <div class="row text-center">
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img src="pale-blue-long-sleeve-denim-shirt-.jpg" draggable="true" ondragstart="drag(event)" alt="pale-blue-long-sleeve-denim-shirt" width="200px">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img src="pale-blue-long-sleeve-denim-shirt-.jpg" draggable="true" ondragstart="drag(event)" alt="pale-blue-long-sleeve-denim-shirt" width="200px">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img src="pale-blue-long-sleeve-denim-shirt-.jpg" draggable="true" ondragstart="drag(event)" alt="pale-blue-long-sleeve-denim-shirt" width="200px">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img src="pale-blue-long-sleeve-denim-shirt-.jpg" draggable="true" ondragstart="drag(event)" alt="pale-blue-long-sleeve-denim-shirt" width="200px">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img src="pale-blue-long-sleeve-denim-shirt-.jpg" draggable="true" ondragstart="drag(event)" alt="pale-blue-long-sleeve-denim-shirt" width="200px">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img src="pale-blue-long-sleeve-denim-shirt-.jpg" draggable="true" ondragstart="drag(event)" alt="pale-blue-long-sleeve-denim-shirt" width="200px">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img src="pale-blue-long-sleeve-denim-shirt-.jpg" draggable="true" ondragstart="drag(event)" alt="pale-blue-long-sleeve-denim-shirt" width="200px">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img src="pale-blue-long-sleeve-denim-shirt-.jpg" draggable="true" ondragstart="drag(event)" alt="pale-blue-long-sleeve-denim-shirt" width="200px">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img src="pale-blue-long-sleeve-denim-shirt-.jpg" draggable="true" ondragstart="drag(event)" alt="pale-blue-long-sleeve-denim-shirt" width="200px">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img src="pale-blue-long-sleeve-denim-shirt-.jpg" draggable="true" ondragstart="drag(event)" alt="pale-blue-long-sleeve-denim-shirt" width="200px">
+            </div>
+          </div>
+
+
+
+          <script>
+          filterSelection("all")
+          function filterSelection(c) {
+          var x, i;
+          x = document.getElementsByClassName("filterDiv");
+          if (c == "all") c = "";
+          for (i = 0; i < x.length; i++) {
+            w3RemoveClass(x[i], "show");
+            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+          }
+        }
+
+        function w3AddClass(element, name) {
+          var i, arr1, arr2;
+          arr1 = element.className.split(" ");
+          arr2 = name.split(" ");
+          for (i = 0; i < arr2.length; i++) {
+            if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+          }
+        }
+
+        function w3RemoveClass(element, name) {
+          var i, arr1, arr2;
+          arr1 = element.className.split(" ");
+          arr2 = name.split(" ");
+          for (i = 0; i < arr2.length; i++) {
+            while (arr1.indexOf(arr2[i]) > -1) {
+              arr1.splice(arr1.indexOf(arr2[i]), 1);
+            }
+          }
+          element.className = arr1.join(" ");
+        }
+
+        // Add active class to the current button (highlight it)
+        var btnContainer = document.getElementById("myBtnContainer");
+        var btns = btnContainer.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+          btns[i].addEventListener("click", function(){
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+          });
+        }
+
+        </script>
+
+        </div>
+      </div>
+</body>
+
+</html>

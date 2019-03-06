@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!-- Defining the language of the document -->
+<html lang="en">
+<head>
+<!-- Declaring the character encoding of the HTML file -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- This tag adds a title to the page -->
+<title>My Account, Try It Out: Skip the Changing Room!</title>
+<!-- Bootstrap core CSS -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+  <link href="stylesheet.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- The navigation bar on the side containing links to the other pages -->
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <!--<div class="sidebar-heading">TRY IT OUT</div>-->
+      <img src = "logo.png" width = "250px">
+      <div class="list-group list-group-flush">
+        <a href="explore.html" class="list-group-item list-group-item-action bg-light">Explore</a>
+        <a href="newitems.html" class="list-group-item list-group-item-action bg-light">New Items</a>
+        <a href="create.html" class="list-group-item list-group-item-action bg-light">Create</a>
+        <a href="myaccount.html" class="list-group-item list-group-item-action bg-light">My Account</a>
+      </div>
+    </div>
+
+  <!-- Page content -->
+  <div id="page-content-wrapper">
+    <div class="container-fluid">
+      <div id="heading"><p class="mt-4">MY ACCOUNT</p></div>
+    </div>
+    <h1>Welcome {$userquery->username}!</h1>
+    <div class = "row">
+      <div class="columnleft">
+        <h2>My Designs</h2>
+        <div class="container">
+          <div class="mySlides">
+            <div class="numbertext">1 / 2</div>
+            <img src="outfit-1.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">2 / 2</div>
+            <img src="outfit-2.jpg" style="width:100%">
+          </div>
+
+          <a class="prev" onclick="plusSlides(-1)">❮</a>
+          <a class="next" onclick="plusSlides(1)">❯</a>
+
+          <div class="caption-container">
+            <p id="caption"></p>
+          </div>
+          <div class="row">
+            <div class="imagecolumn">
+              <!--https://www.newlook.com/row/mens/clothing/shirts/pale-blue-long-sleeve-denim-shirt-/p/595247345?comp=Browse
+              https://www.newlook.com/uk/mens/clothing/shirts/pale-blue-long-sleeve-denim-shirt-/p/595247345?comp=Browse-->
+              <img class="demo cursor" src="outfit-1.jpg" style="width:100%" onclick="currentSlide(1)" alt="outfit-1">
+            </div>
+            <div class="imagecolumn">
+              <!--https://www.newlook.com/uk/mens/clothing/jackets-coats/dark-grey-jersey-sleeve-denim-jacket/p/611401103?comp=Browse-->
+              <img class="demo cursor" src="outfit-2.jpg" style="width:100%" onclick="currentSlide(2)" alt="outfit-2">
+            </div>
+
+        </div>
+      </div>
+
+
+            <script>
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+              showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+              showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+              var i;
+              var slides = document.getElementsByClassName("mySlides");
+              var dots = document.getElementsByClassName("demo");
+              var captionText = document.getElementById("caption");
+              if (n > slides.length) {slideIndex = 1}
+              if (n < 1) {slideIndex = slides.length}
+              for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+              }
+              for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex-1].style.display = "block";
+              dots[slideIndex-1].className += " active";
+              captionText.innerHTML = dots[slideIndex-1].alt;
+            }
+            </script>
+          </div>
+
+          <div class="columnright">
+            <h2>Favourites</h2>
+              <div class="scroll">
+            <div class="columncard" style="width: 250px;">
+              <div class="card">
+                <img src="pale-blue-long-sleeve-denim-shirt-.jpg" alt="pale-blue-long-sleeve-denim-shirt" height="250px">
+              </div>
+            </div>
+
+          <div class="columncard" style="width: 250px;">
+            <div class="card">
+            <img src="pale-blue-long-sleeve-denim-shirt-.jpg" alt="pale-blue-long-sleeve-denim-shirt" height="250px">
+            </div>
+          </div>
+
+          <div class="columncard" style="width: 250px;">
+            <div class="card">
+            <img src="pale-blue-long-sleeve-denim-shirt-.jpg" alt="pale-blue-long-sleeve-denim-shirt" height="250px">
+            </div>
+          </div>
+
+          <div class="columncard" style="width: 250px;">
+            <div class="card">
+            <img src="pale-blue-long-sleeve-denim-shirt-.jpg" alt="pale-blue-long-sleeve-denim-shirt" height="250px">
+            </div>
+          </div>
+
+          <div class="columncard" style="width: 250px;">
+            <div class="card">
+            <img src="pale-blue-long-sleeve-denim-shirt-.jpg" alt="pale-blue-long-sleeve-denim-shirt" height="250px">
+            </div>
+          </div>
+
+          <div class="columncard" style="width: 250px;">
+            <div class="card">
+            <img src="pale-blue-long-sleeve-denim-shirt-.jpg" alt="pale-blue-long-sleeve-denim-shirt" height="250px">
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+
+</html>
