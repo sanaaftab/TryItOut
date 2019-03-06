@@ -21,6 +21,9 @@
 }
 
 #dropbox {
-  width: 550px;
+  padding: inherit;
+  width: 35%;
   height: 650px;
+  justify-content: center;
+  display: flex;
 }
