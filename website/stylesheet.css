@@ -152,25 +152,7 @@ body {
   padding: 0 10px;
 }
 
-.columncardnew {
-  margin-top: 50px;
-  float: left;
-  width: 22%;
-  padding: 0 22px;
-}
-
-
-.columncardright {
-  margin-top: 50px;
-  float: center;
-  width: 80%;
-  padding: 0 50px;
-  height: 100%;
-}
-
-
-
-.card {
+.cardshadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
   padding: 10px;
   height: 250px;
@@ -178,12 +160,39 @@ body {
   background-color: #F1F1F1;
 }
 
+.cardCreate {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 10px;
+  height: 250px;
+  text-align: center;
+  background-color: #F1F1F1;
+  margin: auto;
+}
+
+.cardAccount{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 10px;
+  height: 250px;
+  text-align: center;
+  background-color: #d9d9d9;
+  width: 100%;
+  display: block;
+  margin-top: auto;
+}
+
+footer {
+ display: block;
+ width: 100%;
+ background-color: #d9d9d9;
+}
 
 div.scroll {
   width: auto;
   height: 100%;
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
+
 .display-none{
   display: none;
 }
