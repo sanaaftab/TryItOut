@@ -55,7 +55,10 @@ stage.on('click tap', function (e) {
   stage.find('Transformer').destroy();
   if (removeButton != null)
     removeButton.destroy();
-
+  
+  //move the selected clothe to the top
+  e.target.moveToTop();
+  
   // create new transformer
   var tr = new Konva.Transformer();
   layer.add(tr);
@@ -153,7 +156,6 @@ function destroyRectangle(rectangle) {
   for (var i = 0; i <= itemsBeingUsed.length; i++)
     if (itemsBeingUsed[i] === rectangle)
       itemsBeingUsed.splice(i, 1);
-  alert(itemsBeingUsed.length);
 }
 
 
