@@ -3,7 +3,7 @@
 	$hostname = "dbhost.cs.man.ac.uk";
 	$mysqlusername = "n33565af";
 	$mysqlpassword = "databasepass";
-	$dbName = "n33565af";
+	$dbName = "2018_comp10120_w1";
 	
 //this script compares the user input to associated login info in the User entity and then if it is correct will allow the user to login 	
 	//declaring vars being passed from client
@@ -34,13 +34,15 @@
 	mysqli_stmt_close($query);			
 		
 	//checks to see if the password entered is the same as the original password
-	if($password == $row)
+	if($Password == $row)
 	{
 		echo "login successful";
+		header("Location: explore.html");
 	}	
 	else 
 	{
 		echo "Password incorrect, try again";
+		header("Location: login.html");
 	}		
-	}
+	
 ?>
