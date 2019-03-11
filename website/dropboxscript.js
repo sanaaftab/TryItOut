@@ -1,4 +1,4 @@
-//        DROPBOX
+//        DROPBOX for the drag and drop
 
 var itemsBeingUsed = [];
 var numberOfItemsBeingUsed = 0;
