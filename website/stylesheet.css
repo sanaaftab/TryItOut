@@ -127,20 +127,20 @@ body {
 .columnleft {
   float: left;
   width: 50%;
-  height: 800px;
   color: black;
   margin: 0 -5px;
   text-align: center;
-  padding: 0;
+  margin-bottom: 200px;
 }
 
 .columnright {
   float: right;
   width: 50%;
-  height: 800px;
   color: black;
   margin: 0 -5px;
   text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 
@@ -204,9 +204,9 @@ div.scroll {
 
 /* Position the image container (needed to position the left and right arrows) */
 .container {
-  position: relative;
+  position: absolute;
   width: 70%;
-  position:relative;
+  padding-left: 30px;
 }
 
 /* Hide the images by default */
@@ -326,4 +326,10 @@ div.scroll {
 .btn.active {
   background-color: #666;
   color: white;
+}
+
+.outer {
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 10px;
 }

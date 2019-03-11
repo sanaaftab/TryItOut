@@ -55,10 +55,10 @@ stage.on('click tap', function (e) {
   stage.find('Transformer').destroy();
   if (removeButton != null)
     removeButton.destroy();
-  
+
   //move the selected clothe to the top
   e.target.moveToTop();
-  
+
   // create new transformer
   var tr = new Konva.Transformer();
   layer.add(tr);
