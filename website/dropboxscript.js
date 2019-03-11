@@ -211,3 +211,15 @@ function uploadImage() {
     }
   }
 }
+
+function saveImage() {
+  var imageAsDataURL = stage.toDataURL();
+
+  //save image into localstorage
+  try {
+    localStorage.setItem("elephant", imageAsDataURL);
+  }
+  catch(e){
+    console.log("Storage failed: " + e);
+  }
+}
