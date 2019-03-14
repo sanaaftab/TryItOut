@@ -23,7 +23,7 @@ var layer = new Konva.Layer();
 stage.add(layer);
 
 var pImage = new Image();
-pImage.src = 'person.jpg';
+pImage.src = '../test/person.jpg';
 pImage.onload = replaceImage;
 
 //------------------------------------------------------------------
@@ -214,12 +214,10 @@ function uploadImage() {
 
 function saveImage() {
   var imageAsDataURL = stage.toDataURL();
-
-  //save image into localstorage
-  try {
-    localStorage.setItem("elephant", imageAsDataURL);
-  }
-  catch(e){
-    console.log("Storage failed: " + e);
-  }
+  
+  document.cookie = "username=John Doe";
+  
+  window.location = "save.php";
+  
+  //location.replace("save.php");
 }
