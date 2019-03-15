@@ -1,0 +1,30 @@
+.favorite-star-character {
+  color: #ccd6dd;
+  cursor: pointer;
+  display: inline;
+}
+
+@keyframes favorite-star-bounce {
+  0% {
+    transform: scale3d(1.0, 1.0, 1.0);
+  }
+  50% {
+    transform: scale3d(1.4, 1.4, 1.0);
+  }
+  100% {
+    transform: scale3d(1.0, 1.0, 1.0);
+  }
+}
+
+.favorite-star-character:active
+{
+  color: #ffac33;
+  -webkit-animation: favorite-star-bounce 0.3s ease-in-out;
+  -moz-animation: favorite-star-bounce 0.3s ease-in-out;
+  animation: favorite-star-bounce 0.3s ease-in-out;
+}
+
+.favorite-star-character:hover
+{
+  color: #ffac33;
+}
