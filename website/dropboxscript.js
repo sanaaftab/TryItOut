@@ -1,7 +1,7 @@
 //        DROPBOX for the drag and drop
 
 var itemsBeingUsed = [];
-var urlsOfItemsBeingUsed = [];
+var numberOfItemsBeingUsed = 0;
 var lastDrag;
 var selectedRectangle = null;
 var removeButton = null;
@@ -102,9 +102,6 @@ function createRectangle(image) {
     draggable: true
   });
   itemsBeingUsed.push(rect);
-  var location = image.src.split("/");
-  urlsOfItemsBeingUsed.push(location[location.length-2] 
-                              + "/" + location[location.length-1]);
   layer.add(rect);
   layer.draw();
 }
@@ -116,7 +113,6 @@ function replaceImage() {
 
   stage.find('Rect').destroy();
   itemsBeingUsed = [];
-  urlsOfItemsBeingUsed = [];
 
   if (personImage != null)
     personImage.destroy();
@@ -157,11 +153,9 @@ function replaceImage() {
 
 function destroyRectangle(rectangle) {
   rectangle.destroy();
-  for (var i = 0; i < itemsBeingUsed.length; i++)
-    if (itemsBeingUsed[i] === rectangle){
+  for (var i = 0; i <= itemsBeingUsed.length; i++)
+    if (itemsBeingUsed[i] === rectangle)
       itemsBeingUsed.splice(i, 1);
-      urlsOfItemsBeingUsed.splice(i, 1);
-    }
 }
 
 
@@ -220,15 +214,10 @@ function uploadImage() {
 
 function saveImage() {
   var imageAsDataURL = stage.toDataURL();
-  var me = "me";
-
-    $.post("save.php",{imageData: imageAsDataURL, urlsOfClothes: urlsOfItemsBeingUsed})
-      .done(function(data){
-        alert(data);
-    });
-  //document.cookie = "username=John Doe";
-
-  //window.location = "save.php";
-
+  
+  document.cookie = "username=John Doe";
+  
+  window.location = "save.php";
+  
   //location.replace("save.php");
 }
