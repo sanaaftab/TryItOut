@@ -43,10 +43,7 @@
 		{
 			$userId = $row['UserID'];
 			mysqli_stmt_execute($userQuery);
-			mysqli_stmt_bind_result($userQuery, $userName);
-			mysqli_stmt_fetch($userQuery);
-
-			$outfitsList[] = array("UserName" => $userName, "StorageLink" => $row['StorageLink']);
+			$outfitsList[] = array("UserName" => mysql_fetch_row($userQuery), "StorageLink" => $row['StorageLink']);
 		}
 	}
 	else echo "Does not exist" ;
@@ -56,9 +53,6 @@
 <script>
 	var obj =<?php echo json_encode($outfitsList) ?>;
 	document.write(obj[0]['UserName']);
-	document.write(obj[0]['StorageLink']);
-	document.write(obj[1]['UserName']);
-	document.write(obj[1]['StorageLink']);
 
 </script>
 </body>

@@ -71,14 +71,14 @@
           </ye>
 <script>
 	
-	var body = document.getElementsByTagName('body');
-	var element  = document.getElementById('ul');
 	
+	var element  = document.getElementById('ul');
 	var fragment = document.createDocumentFragment();
 	
+	//array of objects returned from php
 	var clothesObjArray =<?php echo json_encode($clothesList) ?>;
 
-	 
+	 //function creates html takes two parameters which decide picture and and link on click
 	function createPicDiv(StorageLink, ShopLink){
 		let div1 = document.createElement("div");
 		div1.className = "col-lg-3 col-md-6 mb-4";
@@ -92,6 +92,7 @@
 		image.onclick = function(){window.location.href = ShopLink};
 		image.style.height = 600;
 		image.style.width = 'auto';
+		
 		
 		let div3 = document.createElement("div");
 		div3.className = "card-footer";
@@ -111,17 +112,12 @@
 	}
 	
 	var index;
-	for (index =0; index < clothesObjArray.length ; index++){
+	for (index =0; index < clothesObjArray.length ; index++){	
 		createPicDiv(clothesObjArray[index]['StorageLink'], clothesObjArray[index]['ShopLink']);
 	}
 	
 	
-	function imageCreate(){
-		var image = new Image();
-		image.src = obj[0]['StorageLink'];
-		image.className = "card-img-top" ;
-		return image;
-	}
+	
 //	var test = "/clothes/h&m/Shirt_2.png";	
 //	document.getElementById("testImg").src = test;
 	
