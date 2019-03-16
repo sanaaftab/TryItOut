@@ -56,6 +56,9 @@
 <script>
 	var obj =<?php echo json_encode($outfitsList) ?>;
 	document.write(obj[0]['UserName']);
+	document.write(obj[0]['StorageLink']);
+	document.write(obj[1]['UserName']);
+	document.write(obj[1]['StorageLink']);
 
 </script>
 </body>
