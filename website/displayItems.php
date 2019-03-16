@@ -54,8 +54,7 @@
 ?>
 <div class="col-lg-3 col-md-6 mb-4">
             <div class="cardshadow h-100">
-              <img id="testImg" class="card-img-top" src="" alt="">
-			
+              <img id="testImg" class="card-img-top" src="clothes/h&m/Shirt_1.png" alt="">
               <div class="card-footer">
                 <a href="#" class="btn btn-primary">Find Out More!</a>
               </div>
@@ -75,9 +74,10 @@
 		image.className = "card-img-top" ;
 		return image;
 	}
-	var test = obj[0]['StorageLink'];	
+	var test = "clothes/h&m/Shirt_2.png";	
 	document.getElementById("testImg").src = test;
-	
+	//for array length
+	//create html with unique id and pic associated with 
 </script>
 </body>
 
