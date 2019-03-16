@@ -22,7 +22,7 @@
 	}
 
 	//SQL query to return all links in descending order
-	$sqlquery = "SELECT StorageLink, UserId
+	$sqlquery = "SELECT StorageLink, UserID
 				       FROM OUTFITS
 				       ORDER BY Score DESC;";
 
@@ -30,7 +30,7 @@
 
 	$userQuery = mysqli_prepare($connection,"SELECT Username
 						 	                             FROM USERS
-						 							                 WHERE userId = ?;");
+						 							                 WHERE UserID = ?;");
 
 	$outfitList = array();
 
@@ -41,7 +41,7 @@
 		//save image links in array
 		while($row = mysqli_fetch_assoc($result))
 		{
-			$userId = $row['UserId'];
+			$userId = $row['UserID'];
 			mysqli_stmt_execute($userQuery);
 			$outfitsList[] = array("UserName" => mysql_fetch_row($userQuery), "StorageLink" => $row['StorageLink']);
 		}
