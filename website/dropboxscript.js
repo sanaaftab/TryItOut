@@ -1,7 +1,7 @@
 //        DROPBOX for the drag and drop
 
 var itemsBeingUsed = [];
-var numberOfItemsBeingUsed = 0;
+var urlsOfItemsBeingUsed = [];
 var lastDrag;
 var selectedRectangle = null;
 var removeButton = null;
@@ -23,7 +23,7 @@ var layer = new Konva.Layer();
 stage.add(layer);
 
 var pImage = new Image();
-pImage.src = 'person.jpg';
+pImage.src = '../test/person.jpg';
 pImage.onload = replaceImage;
 
 //------------------------------------------------------------------
@@ -102,6 +102,9 @@ function createRectangle(image) {
     draggable: true
   });
   itemsBeingUsed.push(rect);
+  var location = image.src.split("/");
+  urlsOfItemsBeingUsed.push(location[location.length-2] 
+                              + "/" + location[location.length-1]);
   layer.add(rect);
   layer.draw();
 }
@@ -113,6 +116,7 @@ function replaceImage() {
 
   stage.find('Rect').destroy();
   itemsBeingUsed = [];
+  urlsOfItemsBeingUsed = [];
 
   if (personImage != null)
     personImage.destroy();
@@ -153,9 +157,11 @@ function replaceImage() {
 
 function destroyRectangle(rectangle) {
   rectangle.destroy();
-  for (var i = 0; i <= itemsBeingUsed.length; i++)
-    if (itemsBeingUsed[i] === rectangle)
+  for (var i = 0; i < itemsBeingUsed.length; i++)
+    if (itemsBeingUsed[i] === rectangle){
       itemsBeingUsed.splice(i, 1);
+      urlsOfItemsBeingUsed.splice(i, 1);
+    }
 }
 
 
@@ -214,12 +220,15 @@ function uploadImage() {
 
 function saveImage() {
   var imageAsDataURL = stage.toDataURL();
+  var me = "me";
 
-  //save image into localstorage
-  try {
-    localStorage.setItem("elephant", imageAsDataURL);
-  }
-  catch(e){
-    console.log("Storage failed: " + e);
-  }
+    $.post("save.php",{imageData: imageAsDataURL, urlsOfClothes: urlsOfItemsBeingUsed})
+      .done(function(data){
+        alert(data);
+    });
+  //document.cookie = "username=John Doe";
+
+  //window.location = "save.php";
+
+  //location.replace("save.php");
 }
