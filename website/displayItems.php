@@ -28,11 +28,11 @@
 				
 	$result = mysqli_query($connection,$sqlquery)or die(mysqli_error($connection));
 	
-	class ClothesClass{
-		public $StorageLink = "";
-		public $ShopLink= "";
-		public $Name = "";
-	}
+	#class ClothesClass{
+	#	public $StorageLink = "";
+	#	public $ShopLink= "";
+	#	public $Name = "";
+	#}
 	
 	$clothesList = array();
 	if(mysqli_num_rows($result) > 0)
@@ -52,22 +52,33 @@
 	
 	mysqli_close($connection);	
 ?>
-<script>
-	var obj =<?php echo json_encode($clothesList) ?>;
-	document.write(obj[0]['ShopLink']);
-	
-	var div = document.createElement("")
-	
-</script>
-div class="col-lg-3 col-md-6 mb-4">
+<div class="col-lg-3 col-md-6 mb-4">
             <div class="cardshadow h-100">
-              <img class="card-img-top" src="http://placehold.it/400x600" alt="">
-
+              <img id="testImg" class="card-img-top" src="" alt="">
+			
               <div class="card-footer">
                 <a href="#" class="btn btn-primary">Find Out More!</a>
               </div>
             </div>
           </div>
+<script>
+	var obj =<?php echo json_encode($clothesList) ?>;
+	document.write(obj[0]['StorageLink']);
+	
+	var body = document.getElementById("body");
+	var div = document.createElement("div");
+	div.className = "col-lg-3 col-md-6 mb-4";
+	
+	function imageCreate(){
+		var image = new Image();
+		image.src = obj[0]['StorageLink'];
+		image.className = "card-img-top" ;
+		return image;
+	}
+	var test = obj[0]['StorageLink'];	
+	document.getElementById("testImg").src = test;
+	
+</script>
 </body>
 
 </html>
