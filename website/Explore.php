@@ -24,13 +24,13 @@
 	//SQL query to return all links in descending order
 	$sqlquery = "SELECT StorageLink, UserId
 				       FROM OUTFITS
-				       ORDER BY Score DESC;"
+				       ORDER BY Score DESC;";
 
-	$result = mysqli_query($connection,$sqlquery) or die(mysqli_error($connection))
+	$result = mysqli_query($connection,$sqlquery) or die(mysqli_error($connection));
 
 	$userQuery = mysqli_prepare($connection,"SELECT Username
 						 	                             FROM USERS
-						 							                 WHERE userId = ?;")
+						 							                 WHERE userId = ?;");
 
 	$outfitList = array();
 
@@ -43,7 +43,7 @@
 		{
 			$userId = $row['UserId'];
 			mysqli_stmt_execute($userQuery);
-			$outfitsList[] = array("UserName" => mysql_fetch_row($userQuery);, "StorageLink" => $row['StorageLink']);
+			$outfitsList[] = array("UserName" => mysql_fetch_row($userQuery), "StorageLink" => $row['StorageLink']);
 		}
 	}
 	else echo "Does not exist" ;
