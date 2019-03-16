@@ -103,7 +103,8 @@ function createRectangle(image) {
   });
   itemsBeingUsed.push(rect);
   var location = image.src.split("/");
-  urlsOfItemsBeingUsed.push(location[location.length-2] 
+  urlsOfItemsBeingUsed.push(location[location.length-3]
+                              + "/" + location[location.length-2] 
                               + "/" + location[location.length-1]);
   layer.add(rect);
   layer.draw();
@@ -226,7 +227,6 @@ function saveImage() {
       .done(function(data){
         alert(data);
     });
-  //document.cookie = "username=John Doe";
 
   //window.location = "save.php";
 
