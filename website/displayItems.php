@@ -76,7 +76,7 @@
 	
 	var fragment = document.createDocumentFragment();
 	
-	var obj =<?php echo json_encode($clothesList) ?>;
+	var clothesObjArray =<?php echo json_encode($clothesList) ?>;
 
 	 
 	function createPicDiv(StorageLink, ShopLink){
@@ -107,10 +107,13 @@
 		div2.appendChild(image);
 		div2.appendChild(div3);
 		div3.appendChild(a);
+		ye.appendChild(fragment);
 	}
 	
-	createPicDiv(obj[0]['StorageLink'], obj[0]['ShopLink'], );
-	ye.appendChild(fragment);
+	var index;
+	for (index =0; index < clothesObjArray.length ; index++){
+		createPicDiv(clothesObjArray[index]['StorageLink'], clothesObjArray[index]['ShopLink']);
+	}
 	
 	
 	function imageCreate(){
