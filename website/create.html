@@ -24,7 +24,6 @@
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
   <link rel="stylesheet" href="assets/theme/css/style.css">
   <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-  <link rel="stylesheet" href="fav-btn.css">
 
   <!-- JQuery -->
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -122,10 +121,6 @@
               <div class="col-lg-3 mb-4">
                 <div class="cardCreate h-100">
                   <img class="card-img-top" src="../clothes/New_Look/Suit_-_Jacket_1.png" draggable="true" ondragstart="drag(event)" alt="Jacket_2" padding="center">
-                  <div class="favourite">
-                    <p style="margin:0; display:inline;">Add to favorites</p>
-                    <span class="favorite-star-character" onClick="clicked()">&#x2605;</span>
-                  </div>
                 </div>
               </div>
 
@@ -232,22 +227,7 @@
                     this.className += " active";
                   });
                 }
-
-                function clicked() {
-                  console.log("Clicked method invoked!");
-                  //SQL to activate favorites in Database
-                  var currentColor = document.getElementsByClassName("favorite-star-character")[0].style;
-                  //Toggle activated and not
-                  if (currentColor.color === 'rgb(255, 172, 51)') {
-                    //Take out of favourites
-                    document.getElementsByClassName("favorite-star-character")[0].style.color = 'grey';
-                  } else {
-                    //Put into favourites
-                    document.getElementsByClassName("favorite-star-character")[0].style.color = '#ffac33';
-                  }
-                }
               </script>
-
             </div>
           </div>
         </div>
