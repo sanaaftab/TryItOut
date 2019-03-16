@@ -1,7 +1,20 @@
 <html>
 <head>
-</head>
-<body>
+ <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="stylesheet.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons-bold/mobirise-icons-bold.css">
+  <link rel="stylesheet" href="assets/tether/tether.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  
 <?php
 
 	ini_set('display_errors', 1);
@@ -46,27 +59,59 @@
 		}
 	}
 		else echo "Does not exist" ;
-				
-
-
+			
 	
 	mysqli_close($connection);	
 ?>
-<div class="col-lg-3 col-md-6 mb-4">
-            <div class="cardshadow h-100">
-              <img id="testImg" class="card-img-top" src="clothes/h&m/Shirt_1.png" alt="">
-              <div class="card-footer">
-                <a href="#" class="btn btn-primary">Find Out More!</a>
-              </div>
-            </div>
-          </div>
+</head>
+<body>
+
+
+          <ye id="ye" >
+          </ye>
 <script>
-	var obj =<?php echo json_encode($clothesList) ?>;
-	document.write(obj[0]['StorageLink']);
 	
-	var body = document.getElementById("body");
-	var div = document.createElement("div");
-	div.className = "col-lg-3 col-md-6 mb-4";
+	var body = document.getElementsByTagName('body');
+	var element  = document.getElementById('ul');
+	
+	var fragment = document.createDocumentFragment();
+	
+	var obj =<?php echo json_encode($clothesList) ?>;
+
+	 
+	function createPicDiv(StorageLink, ShopLink){
+		let div1 = document.createElement("div");
+		div1.className = "col-lg-3 col-md-6 mb-4";
+		
+		let div2 = document.createElement("div");
+		div2.className = "cardshadow h-100";
+		
+		let image = new Image();
+		image.src = StorageLink;
+		image.className = "card-img-top" ;
+		image.onclick = function(){window.location.href = ShopLink};
+		image.style.height = 600;
+		image.style.width = 'auto';
+		
+		let div3 = document.createElement("div");
+		div3.className = "card-footer";
+		
+		let a = document.createElement("a");
+		a.className = "btn btn-primary";
+		a.href = "#";
+		a.innerHTML = "Add to Favourites";
+		
+		
+		fragment.appendChild(div1);
+		div1.appendChild(div2);
+		div2.appendChild(image);
+		div2.appendChild(div3);
+		div3.appendChild(a);
+	}
+	
+	createPicDiv(obj[0]['StorageLink'], obj[0]['ShopLink'], );
+	ye.appendChild(fragment);
+	
 	
 	function imageCreate(){
 		var image = new Image();
@@ -74,8 +119,9 @@
 		image.className = "card-img-top" ;
 		return image;
 	}
-	var test = "clothes/h&m/Shirt_2.png";	
-	document.getElementById("testImg").src = test;
+//	var test = "/clothes/h&m/Shirt_2.png";	
+//	document.getElementById("testImg").src = test;
+	
 	//for array length
 	//create html with unique id and pic associated with 
 </script>
