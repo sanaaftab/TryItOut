@@ -35,9 +35,20 @@
   echo "Image source: ".$link."<br>";
   //SELECT Query on database
   //Get the actual clothID from the database using StorageLink
-  $getClothesID = "SELECT 'ClothesID' FROM 'test' WHERE `UserID` = 5;";
+  $getClothesID = "SELECT `ClothesID` FROM `CLOTHES` WHERE `StorageLink` = '".$link."';";
   $clothID = mysqli_query($connection, $getClothesID);
-  echo "ClothID: ".$clothID."<br>";
+  //echo "ClothID: ".$clothID."<br>";
+  if ($clothID->num_rows > 0)
+  {
+    while($row = $clothID->fetch_assoc())
+    {
+      echo "ClotheID: ".$row["ClothesID"]."<br>";
+    }
+  }
+  else
+  {
+    echo "No results found";
+  }
   //Find userID
   $userID = 5;
   echo "UserID: ".$userID."<br>";
@@ -45,14 +56,14 @@
   {
     //INSERT Query on database
     //REMEMBER TO CHANGE FORM TEST DATA INTO ACTUAL DATABASE DATA
-    $insertQuery = "INSERT INTO `test`(`UserID`, `ClothesID`) ".
-                   "VALUES (".$userID.",".$clothID.");";
+    $insertQuery = "INSERT INTO `USERS_CLOTHES`(`UserID`, `ClothesID`) ".
+                   "VALUES (".$userID.",".$row["ClothesID"].");";
     mysqli_query($connection, $insertQuery);
     echo "Added to favourites."; // Check if insert query didnt send errors back
   }
   else if ($favourite === "false")
   {
-    $deleteQuery = "DELETE FROM `test` WHERE `ClothesID` = ".$clothID.";";
+    $deleteQuery = "DELETE FROM `test` WHERE `ClothesID` = ".$row["ClothesID"].";";
     mysqli_query($connection, $deleteQuery);
     echo "Removed from favourites."; // Check if insert query didnt send errors back
   }
