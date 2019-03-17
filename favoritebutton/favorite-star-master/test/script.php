@@ -37,12 +37,14 @@
   //Get the actual clothID from the database using StorageLink
   $getClothesID = "SELECT `ClothesID` FROM `CLOTHES` WHERE `StorageLink` = '".$link."';";
   $clothID = mysqli_query($connection, $getClothesID);
+  $clothesID = 0;
   //echo "ClothID: ".$clothID."<br>";
   if ($clothID->num_rows > 0)
   {
     while($row = $clothID->fetch_assoc())
     {
       echo "ClotheID: ".$row["ClothesID"]."<br>";
+      $clothesID = $row["ClothesID"];
     }
   }
   else
@@ -50,22 +52,30 @@
     echo "No results found";
   }
   //Find userID
-  $userID = 5;
+  $userID = 14; //Testing with IDs that already exist as child_table needs foreign keys
   echo "UserID: ".$userID."<br>";
   if ($favourite === "true")
   {
     //INSERT Query on database
     //REMEMBER TO CHANGE FORM TEST DATA INTO ACTUAL DATABASE DATA
-    $insertQuery = "INSERT INTO `USERS_CLOTHES`(`UserID`, `ClothesID`) ".
-                   "VALUES (".$userID.",".$row["ClothesID"].");";
-    mysqli_query($connection, $insertQuery);
-    echo "Added to favourites."; // Check if insert query didnt send errors back
+    $insertQuery = "INSERT INTO `USERS_CLOTHES`(`UserID`, `ClothesID`) VALUES".
+                   " (".$userID.",".$clothesID.");";
+    //Execute insert query and check if it returns true at the same time
+    if (mysqli_query($connection, $insertQuery))
+      echo "Added to favourites.";
+    else
+      echo "Something went wrong while adding to favourites."."<br>".
+           mysqli_error($connection);
   }
   else if ($favourite === "false")
   {
-    $deleteQuery = "DELETE FROM `test` WHERE `ClothesID` = ".$row["ClothesID"].";";
-    mysqli_query($connection, $deleteQuery);
-    echo "Removed from favourites."; // Check if insert query didnt send errors back
+    $deleteQuery = "DELETE FROM `USERS_CLOTHES` WHERE `ClothesID` = ".$clothesID.";";
+    //Execute delete query and check if it returns true at the same time
+    if (mysqli_query($connection, $deleteQuery))
+      echo "Removed from favourites.";
+    else
+      echo "Something went wrong while removing from favourites."."<br>".
+           mysqli_error($connection);
   }
   //Close the connection when finished
   mysqli_close($connection);
