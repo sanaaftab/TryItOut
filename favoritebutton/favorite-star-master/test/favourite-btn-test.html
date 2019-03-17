@@ -1,0 +1,63 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Fav-Btn-Test</title>
+    <link rel="stylesheet" href="master.css">
+  </head>
+
+  <body>
+    <div class="fave">
+      <img id="cloth" src="w1.jpg">
+      <style>
+        .favorite-star-character {
+          color: #ccd6dd;
+          cursor: pointer;
+          display: inline-block;
+
+          transform: scale3d(1.0, 1.0, 1.0);
+          -webkit-transform: scale3d(1.0, 1.0, 1.0);
+          -moz-transform: scale3d(1.0, 1.0, 1.0);
+
+          -webkit-touch-callout: none;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+
+        @keyframes favorite-star-bounce {
+          0% {
+            transform: scale3d(1.0, 1.0, 1.0);
+          }
+          50% {
+            transform: scale3d(1.4, 1.4, 1.0);
+          }
+          100% {
+            transform: scale3d(1.0, 1.0, 1.0);
+          }
+        }
+
+        .favorite-star-character:active
+        {
+          color: #ffac33;
+
+          -webkit-animation: favorite-star-bounce 0.3s ease-in-out;
+          -moz-animation: favorite-star-bounce 0.3s ease-in-out;
+          animation: favorite-star-bounce 0.3s ease-in-out;
+        }
+
+        .favorite-star-character:hover
+        {
+          color: #ffac33;
+        }
+      </style>
+
+      <span class="favorite-star-character" onClick="clicked()">&#x2605;</span>
+    </div>
+    <form id="form" action="script.php" method="post">
+      <input id="sourceTxt" type="text" name="source" visible="true">
+      <input id="txt" type="text" name="favs" value="false" visible="true">
+    </form>
+    <script src="script.js" type="text/javascript"></script>
+  </body>
+</html>
