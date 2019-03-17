@@ -19,23 +19,15 @@
     throw new \Exception('did not match data URI with image data');
   }
 
-  //  WE ONLY NEED TO SAVE $data in the file
-        //these 2 dont work
-        //file_put_contents("img.{$type}", $data);
 
-        //file_put_contents("img.txt", "me");
-
-        /*  DOESNT WORK FOR SOME REASON (error: unable to open file)
-        $myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
-        $txt = "John Doe\n";
-        fwrite($myfile, $txt);
-        $txt = "Jane Doe\n";
-        fwrite($myfile, $txt);
-        fclose($myfile);
-        */
+  // SAVING THE DATA IN THE PNG FILE
+  $myfile = fopen("newfile.png", "w") or die("Unable to open file!");
+  fwrite($myfile, $data);
+  fclose($myfile);
 
 
-  //These are the locations of clothes
+
+  //THESE ARE THE LOCATIONS OF CLOTHES
   $urls = $_POST['urlsOfClothes'];
 
   //you can check how they look by uncommenting this

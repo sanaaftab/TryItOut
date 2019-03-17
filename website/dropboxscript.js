@@ -104,7 +104,7 @@ function createRectangle(image) {
   itemsBeingUsed.push(rect);
   var location = image.src.split("/");
   urlsOfItemsBeingUsed.push(location[location.length-3]
-                              + "/" + location[location.length-2] 
+                              + "/" + location[location.length-2]
                               + "/" + location[location.length-1]);
   layer.add(rect);
   layer.draw();
@@ -220,13 +220,21 @@ function uploadImage() {
 }
 
 function saveImage() {
+
+  //remove all transformes and removeButton
+  stage.find('Transformer').destroy();
+  selectedRectangle = null;
+  if (removeButton != null)
+    removeButton.destroy();
+  layer.draw();
+
   var imageAsDataURL = stage.toDataURL();
-  var me = "me";
+
 
     $.post("save.php",{imageData: imageAsDataURL, urlsOfClothes: urlsOfItemsBeingUsed})
       .done(function(data){
         alert(data);
-    });
+  });
 
   //window.location = "save.php";
 
