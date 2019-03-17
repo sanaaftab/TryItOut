@@ -26,9 +26,6 @@
   <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
   <link rel="stylesheet" href="fav-btn.css">
 
-  <script src="https://code.jquery.com/jquery-2.2.4.js" charset="utf-8"></script>
-  <script src="fav-btn.js"></script>
-
 </head>
 
 <body>
@@ -95,13 +92,17 @@
 
           <div class="col-lg-3 col-md-6 mb-4">
             <div class="cardshadow h-100">
-              <img class="card-img-top" src="http://placehold.it/400x600" alt="">
+              <img class="card-img-top" src="clothes/newlook/Suit_-_Jacket_1.png" alt="Suit Jacket">
 
               <div class="card-footer">
                 <a href="#" class="btn btn-primary">Find Out More!</a>
                 <div class="favourite">
                     <p style="margin:0; display:inline;">Add to favorites</p>
                     <span class="favorite-star-character" onClick="clicked()">&#x2605;</span>
+                    <form id="form" action="fav-btn.php" method="post" hidden="true">
+                      <input id="sourceTxt" type="text" name="source">
+                      <input id="txt" type="text" name="favs" value="false">
+                    </form>
                 </div>
               </div>
             </div>
@@ -240,7 +241,8 @@
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-
+  <script src="https://code.jquery.com/jquery-2.2.4.js" charset="utf-8"></script>
+  <script src="fav-btn.js"></script>
   <!-- Menu Toggle Script
   <script>
     $("#menu-toggle").click(function(e) {
