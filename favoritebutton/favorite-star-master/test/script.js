@@ -4,7 +4,7 @@ function clicked ()
   //Get the img src as a string and send it via POST
   //var link = document.getElementById("cloth").src; - Absolute URL
   var link = document.getElementById("cloth").getAttribute("src");
-  alert("This is it: \n" + link);
+  //alert("This is it: \n" + link);
   //Set link into textbox for POST
   document.getElementById("sourceTxt").value = link;
   
