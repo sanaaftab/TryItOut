@@ -69,7 +69,7 @@
   }
   else if ($favourite === "false")
   {
-    $deleteQuery = "DELETE FROM `test` WHERE `ClothesID` = ".$clothesID.";";
+    $deleteQuery = "DELETE FROM `USERS_CLOTHES` WHERE `ClothesID` = ".$clothesID.";";
     //Execute delete query and check if it returns true at the same time
     if (mysqli_query($connection, $deleteQuery))
       echo "Removed from favourites.";
