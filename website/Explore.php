@@ -43,7 +43,8 @@
 		{
 			$userId = $row['UserID'];
 			mysqli_stmt_execute($userQuery);
-			$outfitsList[] = array("UserName" => mysql_fetch_row($userQuery), "StorageLink" => $row['StorageLink']);
+			$userResult = mysqli_stmt_get_result($userQuery);
+			$outfitsList[] = array("UserName" => mysqli_fetch_row($userResult), "StorageLink" => $row['StorageLink']);
 		}
 	}
 	else echo "Does not exist" ;

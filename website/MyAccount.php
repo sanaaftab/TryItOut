@@ -20,34 +20,32 @@
 		die("Connection failed. ". mysqli_connect_error());
 	}
 
-  $uID = $_SESSION['uID'];
+    $uID = 1;
 	//SQL query to return all links in descending order
-	$userQuery = mysqli_prepare($connection,"SELECT ClothesID
+	$clothesIDQuery = mysqli_prepare($connection,"SELECT ClothesID
 						 	                             FROM USERS_CLOTHES
 						 							                 WHERE UserID = ?;");
 
-	mysqli_stmt_bind_param($userQuery, "i", $uID);
-	mysqli_stmt_execute($userQuery);
-	mysqli_stmt_bind_result($userQuery, $userName);
-	$clothesIds = mysqli_fetch_assoc($result);
+	mysqli_stmt_bind_param($clothesIDQuery, "i", $uID);
+	mysqli_stmt_execute($clothesIDQuery);
+	$clothesIDResult = mysqli_stmt_get_result($clothesIDQuery);
+	$clothesIds = mysqli_fetch_array($clothesIDResult, MYSQLI_NUM);
 
 	$clothesQuery = mysqli_prepare($connection,"SELECT StorageLink
 						 	                                FROM CLOTHES
 						 							                    WHERE ClothesID = ?;");
 
 	mysqli_stmt_bind_param($clothesQuery, "i", $cID);
-	mysqli_stmt_execute($userQuery);
-	mysqli_stmt_bind_result($userQuery, $userName);
 	#class ClothesClass{
 	#	public $StorageLink = "";
 	#	public $ShopLink= "";
 	#	public $Name = "";
 	#}
-  $clothesLinks = array();
+    $clothesLinks = array();
 
-	foreach ($clothesIds as $cID) {
+	foreach ((array)$clothesIds as $cID) {
 		mysqli_stmt_execute($clothesQuery);
-		mysqli_stmt_bind_result($clothesQuery, $clothesLink);
+		$clothesLink = mysqli_stmt_get_result($clothesQuery);
 		$clothesLinks[] = $clothesLink;
 	}
 
