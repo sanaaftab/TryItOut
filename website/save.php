@@ -60,10 +60,52 @@
   //THESE ARE THE LOCATIONS OF CLOTHES
   $urls = $_POST['urlsOfClothes'];
   
+  $getOutfitID = "SELECT 'OutfitID' FROM 'OUTFITS' WHERE 'StorageLink' = '".$url."';";
+    $result = mysqli_query($connection, $getOutfitID);
+    $OutfitID = 0;
+    if ($result->num_rows > 0){
+      while($row = $result->fetch_assoc())
+      {
+        echo "OutfitID: ".$row["OutfitID"]."<br>";
+        $OutfitID = $row["OutfitID"];
+      }
+    }else{
+      echo "Could not determine outfit ID";
+    }
   
+  foreach($urls as $url){
+    $getClothesID = "SELECT `ClothesID` FROM `CLOTHES` WHERE `StorageLink` = '".$link."';";
+    $clothID = mysqli_query($connection, $getClothesID);
+    $clothesID = 0;
+    //echo "ClothID: ".$clothID."<br>";
+    if ($clothID->num_rows > 0)
+    {
+      while($row = $clothID->fetch_assoc())
+      {
+        echo "ClotheID: ".$row["ClothesID"]."<br>";
+        $clothesID = $row["ClothesID"];
+      }
+    }
+    else
+    {
+      echo "Could not determine ClotheID";
+    }
+    
+    $query = $connection->prepare("INSERT INTO CLOTHES_OUTFITS(ClothesID, OutfitID)
+												VALUES (?,?)");
+	  if($query == false)
+			echo "could not link clothe to outfit";
+				
+	  //binding parameters
+ 	  $query->bind_param("ss", $ClothesID, $OutfitID);
+	  $query->execute();
+	  echo mysqli_error($connection);
+	  $query->close();
+  }
 
   //you can check how they look by uncommenting this
-           foreach($urls as $url){
+           /*foreach($urls as $url){
               echo $url;
-            }
+            }*/
+  mysqli_close($connection);
 ?>
