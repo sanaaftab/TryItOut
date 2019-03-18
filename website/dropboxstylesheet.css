@@ -2,9 +2,8 @@
   margin: 0;
   overflow: hidden;
   background-color: transparent;
-  padding:  inherit;
+  padding:  auto;
   float: inherit;
-
 }
 
 #personImg {
@@ -24,7 +23,6 @@
 
 #dropbox {
   padding: inherit;
-  width: 35%;
   height: 650px;
   justify-content: center;
   display: flex;

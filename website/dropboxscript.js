@@ -90,8 +90,8 @@ function drop(ev) {
 //--------------------------------------------------------------------------
 function createRectangle(image) {
   var rect = new Konva.Rect({
-    x: 75,
-    y: 60,
+    x: 150,
+    y: 100,
     width: image.width * (300 / image.height),
     height: 300,
     fillPatternImage: image,
