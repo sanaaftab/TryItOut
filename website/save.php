@@ -1,7 +1,22 @@
 <?php
-
+	
+	ini_set('display_errors', 1);
+	$hostname = "dbhost.cs.man.ac.uk";
+	$mysqlusername = "n33565af";
+	$mysqlpassword = "databasepass";
+	$dbName = "2018_comp10120_w1";
+		
+	//make connection
+	$connection = new mysqli($hostname, $mysqlusername, $mysqlpassword, $dbName);
+	
+	if(!$connection)
+	{
+		die("Connection failed. ". mysqli_connect_error());
+	}		
+	
   // GETS THE DATA OF THE IMAGE AND DECODES IT.
   $data =  $_POST["imageData"];
+  
   if (preg_match('/^data:image\/(\w+);base64,/', $data, $type)) {
     $data = substr($data, strpos($data, ',') + 1);
     $type = strtolower($type[1]); // jpg, png, gif
@@ -28,14 +43,21 @@
   $myfile = fopen("outfits/" . $fileLocation, "w") or die("Unable to open file!");
   fwrite($myfile, $data);
   fclose($myfile);
-
+  
+  $query = $connection->prepare("INSERT INTO OUTFITS(UserID, StorageLink)
+												VALUES (?,?,?)");
+	$mytempfile = "bdcfd";
+	//binding parameters
+	$tempUsername = "ayelmao";
+ 	$query->bind_param("ss", $tempUsername, $myfile);
+	$query->execute();
 
 
   //THESE ARE THE LOCATIONS OF CLOTHES
   $urls = $_POST['urlsOfClothes'];
 
   //you can check how they look by uncommenting this
-          /*foreach($urls as $url){
+           /*foreach($urls as $url){
               echo $url;
             }*/
 ?>

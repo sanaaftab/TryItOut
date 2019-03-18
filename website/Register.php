@@ -34,7 +34,7 @@
 												VALUES (?,?,?)");
 			
 			if($query == false)
-				echo "yeen";
+				echo "could not create user";
 		
 				//binding parameters
 			$query->bind_param("sss", $Username, $Password, $Email);
