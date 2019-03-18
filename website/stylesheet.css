@@ -39,7 +39,7 @@ body {
   margin-left: 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 966px) {
   #sidebar-wrapper {
     margin-left: 0;
   }
@@ -52,6 +52,12 @@ body {
   #wrapper.toggled #sidebar-wrapper {
     margin-left: -15rem;
   }
+}
+
+@media (max-width: 966px){
+  #page-content-wrapper {
+    margin-left: 0px;
+}
 }
 
 #heading {
