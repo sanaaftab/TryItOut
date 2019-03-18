@@ -35,12 +35,12 @@
   }
 
   //figuring out a unique location for the outfit
-  $fileLocation = uniqid() . ".png";
+  $fileLocation = "outfits/" .  uniqid() . ".png";
   if (file_exists("outfits/" . $fileLocation))
     $fileLocation = uniqid() . ".png";
 
   // SAVING THE DATA IN THE PNG FILE
-  $myfile = fopen("outfits/" . $fileLocation, "w") or die("Unable to open file!");
+  $myfile = fopen($fileLocation, "w") or die("Unable to open file!");
   fwrite($myfile, $data);
   fclose($myfile);
   
@@ -50,16 +50,20 @@
 				echo "could not create user";
 				
 	//binding parameters
-	$tempUsername = 22;;
- 	$query->bind_param("ss", $tempUserID, $myfile);
+	$tempUserID = 6;
+ 	$query->bind_param("ss", $tempUserID, $fileLocation);
 	$query->execute();
+	echo mysqli_error($connection);
+	$query->close();
 
 
   //THESE ARE THE LOCATIONS OF CLOTHES
   $urls = $_POST['urlsOfClothes'];
+  
+  
 
   //you can check how they look by uncommenting this
-           /*foreach($urls as $url){
+           foreach($urls as $url){
               echo $url;
-            }*/
+            }
 ?>

@@ -71,7 +71,6 @@
           </ye>
 <script>
 	
-	
 	var element  = document.getElementById('ul');
 	var fragment = document.createDocumentFragment();
 	
@@ -99,12 +98,11 @@
 		let div3 = document.createElement("div");
 		div3.className = "card-footer";
 		
-		let a = document.createElement("a");
-		a.className = "btn btn-primary";
-		a.href = "#";
-		a.innerHTML = "Add to Favourites";
-		
-		
+		let favButton = document.createElement("a");
+		favButton.className = "btn btn-primary";
+		favButton.href = "#";
+		favButton.innerHTML = "Add to Favourites";
+			
 		fragment.appendChild(div1);
 		div1.appendChild(div2);
 		div2.appendChild(image);
@@ -117,6 +115,7 @@
 	for (index =0; index < clothesObjArray.length ; index++){	
 		createPicDiv(clothesObjArray[index]['StorageLink'], clothesObjArray[index]['ShopLink']);
 	}
+	
 	
 	
 	
