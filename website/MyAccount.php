@@ -24,6 +24,10 @@
     if(!isset($_SESSION['uid'])) {
 		header("Location: login.html");
 	}
+	else {
+		$uID = $_SESSION['uid'];
+		echo $uID;
+	}
 	//SQL query to return all links in descending order
 	$clothesIDQuery = mysqli_prepare($connection,"SELECT ClothesID
 						 	                             FROM USERS_CLOTHES
@@ -48,7 +52,8 @@
 
 	foreach ((array)$clothesIds as $cID) {
 		mysqli_stmt_execute($clothesQuery);
-		$clothesLink = mysqli_stmt_get_result($clothesQuery);
+	    mysqli_stmt_bind_result($clothesQuery, $clothesLink);
+        mysqli_stmt_fetch($clothesQuery);
 		$clothesLinks[] = $clothesLink;
 	}
 

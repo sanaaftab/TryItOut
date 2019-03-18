@@ -60,7 +60,7 @@
 	
 	//array of objects returned from php
 	var outfitsObjArray =<?php echo json_encode($outfitsList) ?>;
-
+    document.write(outfitsObjArray[0]['UserName']);
 	 //function creates html takes two parameters which decide picture and and link on click
 	function createPicDiv(StorageLink, ShopLink){
 		let div1 = document.createElement("div");

@@ -17,19 +17,20 @@
 	{
 		die("Connection failed. ". mysqli_connect_error());
 	}
-
 	//query to select the password of the username entered
 	//preparing parameters to prevent sql injection
+	session_start();
+	session_destroy();
 	$query = mysqli_prepare($connection, "SELECT Password FROM USERS WHERE Email = ?;");
 	//binding parameters
     mysqli_stmt_bind_param($query, "s", $Email);
-
+    
 	//executes query
 	mysqli_stmt_execute($query);
 	//binds results
 	mysqli_stmt_bind_result($query, $result);
 	//stores results in var
-	$row = mysqli_stmt_fetch($query);
+	mysqli_stmt_fetch($query);
 	//closes statement
 	mysqli_stmt_close($query);
 
@@ -39,16 +40,20 @@
 
 	mysqli_stmt_execute($uIDQuery);
 
-	mysqli_stmt_bind_result($uIDQuery, $uIDResult);
-
-	$uID = mysqli_stmt_fetch($uIDQuery);
+	mysqli_stmt_bind_result($uIDQuery, $uID);
+	
+    mysqli_stmt_fetch($uIDQuery);
+    
+	mysqli_stmt_close($uIDQuery);
+	//$uID = mysqli_stmt_fetch($uIDQuery);
 	//checks to see if the password entered is the same as the original password
-	if($Password == $row)
+	if($Password === $result)
 	{
+		echo $result;
+		echo $uID;
 		session_start();
-		echo "login successful";
 	    $_SESSION['uid'] = $uID;
-		header("Location: explore.html");
+		//header("Location: testSession.php");
 	}
 	else
 	{
