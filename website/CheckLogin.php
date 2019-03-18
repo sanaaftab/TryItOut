@@ -22,7 +22,7 @@
 	//preparing parameters to prevent sql injection
 	$query = mysqli_prepare($connection, "SELECT Password FROM USERS WHERE Email = ?;");
 	//binding parameters
-  mysqli_stmt_bind_param($query, "s", $Email);
+    mysqli_stmt_bind_param($query, "s", $Email);
 
 	//executes query
 	mysqli_stmt_execute($query);
@@ -41,13 +41,11 @@
 
 	mysqli_stmt_bind_result($uIDQuery, $uIDResult);
 
-	$uID = mysqli_stmt_fetch($uIDQuery)
+	$uID = mysqli_stmt_fetch($uIDQuery);
 	//checks to see if the password entered is the same as the original password
 	if($Password == $row)
 	{
 		echo "login successful";
-		session_start();
-		$_SESSION['uID'] = $uID;
 		header("Location: explore.html");
 	}
 	else
