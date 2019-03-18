@@ -107,7 +107,7 @@
 		div1.appendChild(div2);
 		div2.appendChild(image);
 		div2.appendChild(div3);
-		div3.appendChild(a);
+		div3.appendChild(favButton);
 		ye.appendChild(fragment);
 	}
 	
