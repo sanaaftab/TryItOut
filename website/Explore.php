@@ -35,14 +35,14 @@
 
 	//SQL query to return all links in descending order
 	$sqlquery = "SELECT StorageLink, UserID
-				 FROM OUTFITS
-				 ORDER BY OutfitID DESC;";
+				       FROM OUTFITS
+				       ORDER BY OutfitID DESC;";
 
 	$result = mysqli_query($connection,$sqlquery) or die(mysqli_error($connection));
 
 	$userQuery = mysqli_prepare($connection,"SELECT Username
-						 	                 FROM USERS
-						 				     WHERE UserID = ?;");
+						 	                             FROM USERS
+						 							                 WHERE UserID = ?;");
 
 	$outfitList = array();
 
@@ -110,7 +110,7 @@
 	}
 	
 	var index;
-	for (index = 0; index < outfitsObjArray.length ; index++){	
+	for (index =0; index < outfitsObjArray.length ; index++){	
 		createPicDiv(outfitsObjArray[index]['StorageLink']);//, clothesObjArray[index]['ShopLink']);
 	}
 	
