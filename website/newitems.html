@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="assets/theme/css/style.css">
   <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
   <link rel="stylesheet" href="fav-btn.css">
-	
+
 	<?php
 
 	ini_set('display_errors', 1);
@@ -33,31 +33,31 @@
 	$mysqlusername = "n33565af";
 	$mysqlpassword = "databasepass";
 	$dbName = "2018_comp10120_w1";
-	
+
 	//this script will return the directory address of the clothes with name of the clothes and store
-	
+
 	//make connection
 	$connection = new mysqli($hostname, $mysqlusername, $mysqlpassword, $dbName);
-	
-	
+
+
 	if(!$connection)
 	{
 		die("Connection failed. ". mysqli_connect_error());
-	}		
+	}
 
 	//SQL query to return all links in descending order
 	$sqlquery = "SELECT Name, ShopLink, StorageLink
-				FROM CLOTHES			
+				FROM CLOTHES
 			    ORDER BY ClothesID DESC";
-				
+
 	$result = mysqli_query($connection,$sqlquery)or die(mysqli_error($connection));
-	
+
 	#class ClothesClass{
 	#	public $StorageLink = "";
 	#	public $ShopLink= "";
 	#	public $Name = "";
 	#}
-	
+
 	$clothesList = array();
 	if(mysqli_num_rows($result) > 0)
 	{
@@ -70,9 +70,9 @@
 		}
 	}
 		else echo "Does not exist" ;
-			
-	
-	mysqli_close($connection);	
+
+
+	mysqli_close($connection);
 	?>
 </head>
 
@@ -85,7 +85,7 @@
       <!--<div class="sidebar-heading">TRY IT OUT</div>-->
       <img src = "logo.png" width = "250px">
       <div class="list-group list-group-flush">
-        <a href="explore.html" class="list-group-item list-group-item-action bg-light">Explore</a>
+        <a href="explore.php" class="list-group-item list-group-item-action bg-light">Explore</a>
         <a href="newitems.html" class="list-group-item list-group-item-action bg-light">New Items</a>
         <a href="create.html" class="list-group-item list-group-item-action bg-light">Create</a>
         <a href="myaccount.html" class="list-group-item list-group-item-action bg-light">My Account</a>

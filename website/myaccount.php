@@ -42,7 +42,7 @@
 	{
 		die("Connection failed. ". mysqli_connect_error());
 	}
-    
+
     session_start();
     if(!isset($_SESSION['uid'])) {
 		header("Location: login.html");
@@ -85,7 +85,7 @@
 
 
 	mysqli_close($connection);
-  ?>	
+  ?>
 </head>
 
 <body>
@@ -97,7 +97,7 @@
       <!--<div class="sidebar-heading">TRY IT OUT</div>-->
       <img src = "logo.png" width = "250px">
       <div class="list-group list-group-flush">
-        <a href="explore.html" class="list-group-item list-group-item-action bg-light">Explore</a>
+        <a href="explore.php" class="list-group-item list-group-item-action bg-light">Explore</a>
         <a href="newitems.php" class="list-group-item list-group-item-action bg-light">New Items</a>
         <a href="create.html" class="list-group-item list-group-item-action bg-light">Create</a>
         <a href="myaccount.html" class="list-group-item list-group-item-action bg-light">My Account</a>
@@ -236,10 +236,10 @@
                 <ye id="ye" >
                 </ye>
 <script>
-	
+
 	var element  = document.getElementById('ul');
 	var fragment = document.createDocumentFragment();
-	
+
 	//array of objects returned from php
 	var clothesLinks =<?php echo json_encode($clothesLinks) ?>;
 	 //function creates html takes two parameters which decide picture and and link on click
@@ -248,39 +248,39 @@
 		div1.className = "col-lg-3 col-md-6 mb-4";
 		div1.style.display = "inline-block";
 		div1.style.height = 500;
-		
+
 		let div2 = document.createElement("div");
 		div2.className = "cardshadow h-100";
-		
+
 		let image = new Image();
 		image.src = StorageLink;
 		image.className = "card-img-top" ;
 		image.style.height = 'auto';
 		image.style.width = 200;
-		
-	
-		
-	
-			
+
+
+
+
+
 		fragment.appendChild(div1);
 		div1.appendChild(div2);
 		div2.appendChild(image);
 		ye.appendChild(fragment);
 	}
-	
+
 	var index;
-	for (index = 0; index < clothesLinks.length ; index++){	
+	for (index = 0; index < clothesLinks.length ; index++){
 		createPicDiv(clothesLinks[index]);//, clothesObjArray[index]['ShopLink']);
 	}
-	
-	
-	
-	
-//	var test = "/clothes/h&m/Shirt_2.png";	
+
+
+
+
+//	var test = "/clothes/h&m/Shirt_2.png";
 //	document.getElementById("testImg").src = test;
-	
+
 	//for array length
-	//create html with unique id and pic associated with 
+	//create html with unique id and pic associated with
 </script>
 
         </div>

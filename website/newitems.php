@@ -44,9 +44,9 @@
 	{
 		die("Connection failed. ". mysqli_connect_error());
 	}
-	
+
     session_start();
-    
+
     if(!isset($_SESSION['uid'])) {
 		header("Location: login.html");
 	}
@@ -93,7 +93,7 @@
       <!--<div class="sidebar-heading">TRY IT OUT</div>-->
       <img src = "logo.png" width = "250px">
       <div class="list-group list-group-flush">
-        <a href="explore.html" class="list-group-item list-group-item-action bg-light">Explore</a>
+        <a href="explore.php" class="list-group-item list-group-item-action bg-light">Explore</a>
         <a href="newitems.php" class="list-group-item list-group-item-action bg-light">New Items</a>
         <a href="create.html" class="list-group-item list-group-item-action bg-light">Create</a>
         <a href="myaccount.html" class="list-group-item list-group-item-action bg-light">My Account</a>
