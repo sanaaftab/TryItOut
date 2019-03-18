@@ -19,9 +19,13 @@
     throw new \Exception('did not match data URI with image data');
   }
 
+  //figuring out a unique location for the outfit
+  $fileLocation = uniqid() . ".png";
+  if (file_exists("outfits/" . $fileLocation))
+    $fileLocation = uniqid() . ".png";
 
   // SAVING THE DATA IN THE PNG FILE
-  $myfile = fopen("newfile.png", "w") or die("Unable to open file!");
+  $myfile = fopen("outfits/" . $fileLocation, "w") or die("Unable to open file!");
   fwrite($myfile, $data);
   fclose($myfile);
 
