@@ -1,11 +1,9 @@
 #container {
   margin: 0;
-  padding: 0;
   overflow: hidden;
   background-color: transparent;
-
   padding:  inherit;
-  float: center;
+  float: inherit;
 
 }
 
@@ -15,11 +13,13 @@
   display:block;
   margin:auto;
   background-color: black;
+  overflow: hidden;
 }
 
 .size {
   width: 550px;
   height: 650px;
+  overflow: hidden;
 }
 
 #dropbox {
@@ -28,4 +28,21 @@
   height: 650px;
   justify-content: center;
   display: flex;
+  overflow: hidden;
+}
+
+@media only screen and
+  (max-width:900px){
+  .size{
+    width: 100px;
+  }
+  #container{
+    width: 100px;
+  }
+  #dropbox{
+    width: 100px;
+  }
+  #personImg{
+    width: 100px;
+  }
 }
