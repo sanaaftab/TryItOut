@@ -73,11 +73,11 @@
 			
 	
 	mysqli_close($connection);	
-	?>
+?>
 </head>
 
 <body>
-
+	
   <div class="d-flex" id="wrapper">
 
     <!-- Sidebar -->
@@ -138,99 +138,66 @@
         <!-- Page Features -->
         <div class="row text-center">
 
-          <div class="col-lg-3 col-md-6 mb-4">
-            <div class="cardshadow h-100">
-              <img class="card-img-top" src="clothes/newlook/Suit_-_Jacket_1.png" alt="Suit Jacket">
+					<ye id="ye" >
+          </ye>
+<script>
+	
+	var element  = document.getElementById('ul');
+	var fragment = document.createDocumentFragment();
+	
+	//array of objects returned from php
+	var clothesObjArray =<?php echo json_encode($clothesList) ?>;
 
-              <div class="card-footer">
-                <a href="#" class="btn btn-primary">Find Out More!</a>
-                <div class="favourite">
-                    <p style="margin:0; display:inline;">Add to favorites</p>
-                    <span class="favorite-star-character" onClick="clicked()">&#x2605;</span>
-                    <form id="form" action="fav-btn.php" method="post" hidden="true">
-                      <input id="sourceTxt" type="text" name="source">
-                      <input id="txt" type="text" name="favs" value="false">
-                    </form>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mb-4">
-            <div class="cardshadow h-100">
-              <img class="card-img-top" src="http://placehold.it/400x600" alt="">
-
-              <div class="card-footer">
-                <a href="#" class="btn btn-primary">Find Out More!</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mb-4">
-            <div class="cardshadow h-100">
-              <img class="card-img-top" src="http://placehold.it/400x600" alt="">
-
-              <div class="card-footer">
-                <a href="#" class="btn btn-primary">Find Out More!</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mb-4">
-            <div class="cardshadow h-100">
-              <img class="card-img-top" src="http://placehold.it/400x600" alt="">
-
-              <div class="card-footer">
-                <a href="#" class="btn btn-primary">Find Out More!</a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <!-- /.row -->
-
-        <!-- Page Features -->
-        <div class="row text-center">
-
-          <div class="col-lg-3 col-md-6 mb-4">
-            <div class="cardshadow h-100">
-              <img class="card-img-top" src="http://placehold.it/400x600" alt="">
-
-              <div class="card-footer">
-                <a href="#" class="btn btn-primary">Find Out More!</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mb-4">
-            <div class="cardshadow h-100">
-              <img class="card-img-top" src="http://placehold.it/400x600" alt="">
-
-              <div class="card-footer">
-                <a href="#" class="btn btn-primary">Find Out More!</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mb-4">
-            <div class="cardshadow h-100">
-              <img class="card-img-top" src="http://placehold.it/400x600" alt="">
-
-              <div class="card-footer">
-                <a href="#" class="btn btn-primary">Find Out More!</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mb-4">
-            <div class="cardshadow h-100">
-              <img class="card-img-top" src="http://placehold.it/400x600" alt="">
-
-              <div class="card-footer">
-                <a href="#" class="btn btn-primary">Find Out More!</a>
-              </div>
-            </div>
-          </div>
+	 //function creates html takes two parameters which decide picture and and link on click
+	function createPicDiv(StorageLink, ShopLink){
+		let div1 = document.createElement("div");
+		div1.className = "col-lg-3 col-md-6 mb-4";
+		div1.style.display = "inline-block";
+		div1.style.height = 500;
+		
+		let div2 = document.createElement("div");
+		div2.className = "cardshadow h-100";
+		
+		let image = new Image();
+		image.src = StorageLink;
+		image.className = "card-img-top" ;
+		image.onclick = function(){window.location.href = ShopLink};
+		image.style.height = 'auto';
+		image.style.width = 200;
+		
+		
+		let div3 = document.createElement("div");
+		div3.className = "card-footer";
+		
+		let favButton = document.createElement("a");
+		favButton.className = "btn btn-primary";
+		favButton.href = "#";
+		favButton.innerHTML = "Add to Favourites";
+			
+		fragment.appendChild(div1);
+		div1.appendChild(div2);
+		div2.appendChild(image);
+		div2.appendChild(div3);
+		div3.appendChild(favButton);
+		ye.appendChild(fragment);
+	}
+	
+	var index;
+	for (index =0; index < clothesObjArray.length ; index++){	
+		createPicDiv(clothesObjArray[index]['StorageLink'], clothesObjArray[index]['ShopLink']);
+	}
+	
+	
+	
+	
+//	var test = "/clothes/h&m/Shirt_2.png";	
+//	document.getElementById("testImg").src = test;
+	
+	//for array length
+	//create html with unique id and pic associated with 
+</script>
+		
+          
 
         </div>
         <!-- /.row -->
