@@ -82,6 +82,7 @@
 	function createPicDiv(StorageLink, ShopLink){
 		let div1 = document.createElement("div");
 		div1.className = "col-lg-3 col-md-6 mb-4";
+		div1.style.display = "inline-block";
 		
 		let div2 = document.createElement("div");
 		div2.className = "cardshadow h-100";
@@ -90,8 +91,8 @@
 		image.src = StorageLink;
 		image.className = "card-img-top" ;
 		image.onclick = function(){window.location.href = ShopLink};
-		image.style.height = 600;
-		image.style.width = 'auto';
+		image.style.height = 'auto';
+		image.style.width = 200;
 		
 		
 		let div3 = document.createElement("div");
