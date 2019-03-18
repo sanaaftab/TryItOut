@@ -83,6 +83,7 @@
 		let div1 = document.createElement("div");
 		div1.className = "col-lg-3 col-md-6 mb-4";
 		div1.style.display = "inline-block";
+		div1.style.height = 500;
 		
 		let div2 = document.createElement("div");
 		div2.className = "cardshadow h-100";

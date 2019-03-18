@@ -44,12 +44,14 @@
   fwrite($myfile, $data);
   fclose($myfile);
   
-  $query = $connection->prepare("INSERT INTO OUTFITS(UserID, StorageLink)
-												VALUES (?,?,?)");
-	$mytempfile = "bdcfd";
+	$query = $connection->prepare("INSERT INTO OUTFITS(UserID, StorageLink)
+												VALUES (?,?)");
+	if($query == false)
+				echo "could not create user";
+				
 	//binding parameters
-	$tempUsername = "ayelmao";
- 	$query->bind_param("ss", $tempUsername, $myfile);
+	$tempUsername = 22;;
+ 	$query->bind_param("ss", $tempUserID, $myfile);
 	$query->execute();
 
 
