@@ -10,11 +10,11 @@
 
   if ($connection->connect_error)
   {
-    die("Connection failed: ".$connection->connect_error."<br>");
+    die("Connection failed: ".$connection->connect_error);
   }
   else
   {
-    echo "Connection succesful!"."<br>";
+    echo "Connection succesful!";
   }
   
   /*
@@ -49,10 +49,10 @@
   }
   else
   {
-    echo "No results found"."<br>";
+    echo "No results found";
   }
   //Find userID
-  $userID = 7; //Testing with IDs that already exist as child_table needs foreign keys
+  $userID = 14; //Testing with IDs that already exist as child_table needs foreign keys
   echo "UserID: ".$userID."<br>";
   if ($favourite === "true")
   {
