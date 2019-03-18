@@ -177,10 +177,29 @@
 		let div3 = document.createElement("div");
 		div3.className = "card-footer";
 
-		let favButton = document.createElement("a");
+        let favButton = document.createElement("favButton");
 		favButton.className = "btn btn-primary";
-		favButton.href = "#";
-		favButton.innerHTML = "Add to Favourites";
+	    favButton.innerHTML = "Change me";
+	    var link = StorageLink;
+	    var bool = "t/f";
+	    function setBool() {
+	      alert("fck this!");
+	      $.post("newitems-fav.php", {source: link})
+           .done(function(data) { bool = data;});
+        };//setBool
+        setBool();
+	    //Set innerHTML for buttons
+	    if (bool === "true")
+	      favButton.innerHTML = "Remove from favourites";
+	    else if (bool === "false")
+	      favButton.innerHTML = "Add to favourites";
+	    else
+	      favButton.innerHTML = "Change me";
+	    //fin innerHTML
+	    favButton.onclick = function () {
+          $.post("fav-btn.php", {source: link, favs: bool})
+           .done(function(data) { alert("Data: " + data); });
+	    };
 
 		fragment.appendChild(div1);
 		div1.appendChild(div2);
