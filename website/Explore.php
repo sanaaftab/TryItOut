@@ -24,7 +24,7 @@
 	//SQL query to return all links in descending order
 	$sqlquery = "SELECT StorageLink, UserID
 				       FROM OUTFITS
-				       ORDER BY Score DESC;";
+				       ORDER BY OutfitID DESC;";
 
 	$result = mysqli_query($connection,$sqlquery) or die(mysqli_error($connection));
 
@@ -51,10 +51,63 @@
 
 	mysqli_close($connection);
 ?>
+          <ye id="ye" >
+          </ye>
 <script>
-	var obj =<?php echo json_encode($outfitsList) ?>;
-	document.write(obj[0]['UserName']);
+	
+	var element  = document.getElementById('ul');
+	var fragment = document.createDocumentFragment();
+	
+	//array of objects returned from php
+	var outfitsObjArray =<?php echo json_encode($outfitsList) ?>;
 
+	 //function creates html takes two parameters which decide picture and and link on click
+	function createPicDiv(StorageLink, ShopLink){
+		let div1 = document.createElement("div");
+		div1.className = "col-lg-3 col-md-6 mb-4";
+		div1.style.display = "inline-block";
+		div1.style.height = 500;
+		
+		let div2 = document.createElement("div");
+		div2.className = "cardshadow h-100";
+		
+		let image = new Image();
+		image.src = StorageLink;
+		image.className = "card-img-top" ;
+		image.onclick = function(){window.location.href = ShopLink};
+		image.style.height = 'auto';
+		image.style.width = 200;
+		
+		
+		let div3 = document.createElement("div");
+		div3.className = "card-footer";
+		
+		let favButton = document.createElement("a");
+		favButton.className = "btn btn-primary";
+		favButton.href = "#";
+		favButton.innerHTML = "Add to Favourites";
+			
+		fragment.appendChild(div1);
+		div1.appendChild(div2);
+		div2.appendChild(image);
+		div2.appendChild(div3);
+		div3.appendChild(favButton);
+		ye.appendChild(fragment);
+	}
+	
+	var index;
+	for (index =0; index < clothesObjArray.length ; index++){	
+		createPicDiv(outfitsObjArray[index]['StorageLink'], 'somelink');//, clothesObjArray[index]['ShopLink']);
+	}
+	
+	
+	
+	
+//	var test = "/clothes/h&m/Shirt_2.png";	
+//	document.getElementById("testImg").src = test;
+	
+	//for array length
+	//create html with unique id and pic associated with 
 </script>
 </body>
 
