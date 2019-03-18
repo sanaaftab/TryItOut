@@ -45,7 +45,9 @@
 	//checks to see if the password entered is the same as the original password
 	if($Password == $row)
 	{
+		session_start();
 		echo "login successful";
+	    $_SESSION['uid'] = $uID;
 		header("Location: explore.html");
 	}
 	else

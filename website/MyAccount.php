@@ -19,8 +19,11 @@
 	{
 		die("Connection failed. ". mysqli_connect_error());
 	}
-
-    $uID = 1;
+    
+    session_start();
+    if(!isset($_SESSION['uid'])) {
+		header("Location: login.html");
+	}
 	//SQL query to return all links in descending order
 	$clothesIDQuery = mysqli_prepare($connection,"SELECT ClothesID
 						 	                             FROM USERS_CLOTHES
