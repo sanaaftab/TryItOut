@@ -52,9 +52,9 @@
     echo "No results found";
   }
   //Find userID
-  $userID = 14; //Testing with IDs that already exist as child_table needs foreign keys
+  $userID = 7; //Testing with IDs that already exist as child_table needs foreign keys
   echo "UserID: ".$userID."<br>";
-  if ($favourite === "true")
+  if ($favourite === "false")
   {
     //INSERT Query on database
     //REMEMBER TO CHANGE FORM TEST DATA INTO ACTUAL DATABASE DATA
@@ -67,7 +67,7 @@
       echo "Something went wrong while adding to favourites."."<br>".
            mysqli_error($connection);
   }
-  else if ($favourite === "false")
+  else if ($favourite === "true")
   {
     $deleteQuery = "DELETE FROM `USERS_CLOTHES` WHERE `ClothesID` = ".$clothesID.";";
     //Execute delete query and check if it returns true at the same time
