@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
   <link rel="stylesheet" href="fav-btn.css">
 
+  <script src="https://code.jquery.com/jquery-2.2.4.js" charset="utf-8"></script>
 	<?php
 
 	ini_set('display_errors', 1);
@@ -177,29 +178,30 @@
 		let div3 = document.createElement("div");
 		div3.className = "card-footer";
 
-        let favButton = document.createElement("favButton");
+    let favButton = document.createElement("favButton");
 		favButton.className = "btn btn-primary";
+	  favButton.innerHTML = "N/A";
+	  var link = StorageLink;
+	  var bool = "t/f";
+	  function setBool() {
+	    $.post("newitems-fav.php", {source: link})
+       .done(function(data) { bool = data; });
+      //alert(bool);
+    };//setBool
+    setBool();
+	  //Set innerHTML for buttons
+	  if (bool === "true")
+	    favButton.innerHTML = "Remove from favourites";
+	  else if (bool === "false")
+	    favButton.innerHTML = "Add to favourites";
+	  else
 	    favButton.innerHTML = "Change me";
-	    var link = StorageLink;
-	    var bool = "t/f";
-	    function setBool() {
-	      alert("fck this!");
-	      $.post("newitems-fav.php", {source: link})
-           .done(function(data) { bool = data;});
-        };//setBool
-        setBool();
-	    //Set innerHTML for buttons
-	    if (bool === "true")
-	      favButton.innerHTML = "Remove from favourites";
-	    else if (bool === "false")
-	      favButton.innerHTML = "Add to favourites";
-	    else
-	      favButton.innerHTML = "Change me";
-	    //fin innerHTML
-	    favButton.onclick = function () {
-          $.post("fav-btn.php", {source: link, favs: bool})
-           .done(function(data) { alert("Data: " + data); });
-	    };
+	  //fin innerHTML
+	  favButton.onclick = function () {
+	    //By this time, bool takes the value of <data>
+      $.post("fav-btn.php", {source: link, favs: bool})
+       .done(function(data) { alert("Data: " + data); });
+	  };
 
 		fragment.appendChild(div1);
 		div1.appendChild(div2);
@@ -283,7 +285,6 @@
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <script src="https://code.jquery.com/jquery-2.2.4.js" charset="utf-8"></script>
   <script src="fav-btn.js"></script>
   <!-- Menu Toggle Script
   <script>
