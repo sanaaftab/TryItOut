@@ -51,7 +51,8 @@
 				echo "could not create user";
 
 	//binding parameters
-	$tempUserID = 6;
+	session_start();
+  $tempUserID = $_SESSION['uid'];
  	$query->bind_param("ss", $tempUserID, $fileLocation);
 	$query->execute();
 	echo mysqli_error($connection);
