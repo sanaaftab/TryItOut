@@ -95,7 +95,7 @@
       <img src = "logo.png" width = "250px">
       <div class="list-group list-group-flush">
         <a href="explore.php" class="list-group-item list-group-item-action bg-light">Explore</a>
-        <a href="newitems.php" class="list-group-item list-group-item-action bg-light">New Items</a>
+        <a href="newitems.php" class="list-group-item list-group-item-action bg-light">Clothes</a>
         <a href="create.php" class="list-group-item list-group-item-action bg-light">Create</a>
         <a href="myaccount.php" class="list-group-item list-group-item-action bg-light">My Account</a>
       </div>
@@ -191,7 +191,7 @@
         isFavourite = "false";
       else if(favButton.innerHTML === "Remove from favourites")
         isFavourite = "true";
-        
+
       $.post("fav-btn.php", {source: link, favs: isFavourite})
        .done(function(data) {
          alert("Data: " + data);
