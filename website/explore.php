@@ -185,8 +185,6 @@
 		fragment.appendChild(div1);
 		div1.appendChild(div2);
 		div2.appendChild(image);
-		div2.appendChild(div3);
-		div3.appendChild(favButton);
 		ye.appendChild(fragment);
 	}
 
