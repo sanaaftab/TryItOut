@@ -132,19 +132,19 @@
 
               <div class="col-lg-3 mb-4">
                 <div class="cardCreate h-100">
-                  <img class="card-img-top" src="pale-blue-long-sleeve-denim-shirt-.jpg" draggable="true" ondragstart="drag(event)" alt="pale-blue-long-sleeve-denim-shirt">
+                  <img class="card-img-top" src="clothes/newlook/Trousers_2.png" draggable="true" ondragstart="drag(event)" alt="pale-blue-long-sleeve-denim-shirt">
                 </div>
               </div>
 
               <div class="col-lg-3 mb-4">
                 <div class="cardCreate h-100">
-                  <img class="card-img-top" src="pale-blue-long-sleeve-denim-shirt-.jpg" draggable="true" ondragstart="drag(event)" alt="pale-blue-long-sleeve-denim-shirt">
+                  <img class="card-img-top" src="clothes/newlook/Dress_2.png" draggable="true" ondragstart="drag(event)" alt="pale-blue-long-sleeve-denim-shirt">
                 </div>
               </div>
 
               <div class="col-lg-3 mb-4">
                 <div class="cardCreate h-100">
-                  <img class="card-img-top" src="pale-blue-long-sleeve-denim-shirt-.jpg" draggable="true" ondragstart="drag(event)" alt="pale-blue-long-sleeve-denim-shirt">
+                  <img class="card-img-top" src="clothes/h&m/Jacket_2.png" draggable="true" ondragstart="drag(event)" alt="pale-blue-long-sleeve-denim-shirt">
                 </div>
               </div>
 

@@ -183,15 +183,20 @@
 		favButton.className = "btn btn-primary";
 	  favButton.innerHTML = "N/A";
 	  var link = StorageLink;
-	  var bool = "t/f";
+	  //var bool = "t/f"
 	  favButton.onclick = function () {
-	    //By this time, bool takes the value of <data>
-      $.post("fav-btn.php", {source: link, favs: bool})
+
+      var isFavourite = "t/f";
+      if(favButton.innerHTML === "Add to favourites")
+        isFavourite = "false";
+      else if(favButton.innerHTML === "Remove from favourites")
+        isFavourite = "true";
+      $.post("fav-btn.php", {source: link, favs: isFavourite})
        .done(function(data) {
          alert("Data: " + data);
-         if(favButton.innerHTML === "Remove from favourites")
+         if(isFavourite === "true")
             favButton.innerHTML = "Add to favourites";
-         else if (favButton.innerHTML === "Add to favourites")
+         else if (isFavourite === "false")
             favButton.innerHTML = "Remove from favourites";
        });
 	  };
