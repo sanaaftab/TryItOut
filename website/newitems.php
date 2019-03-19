@@ -157,7 +157,7 @@
 	//array of objects returned from php
 	var clothesObjArray =<?php echo json_encode($clothesList) ?>;
 
-	 //function creates html takes two parameters which decide picture and and link on click
+	//function creates html takes two parameters which decide picture and and link on click
 	function createPicDiv(StorageLink, ShopLink){
 		let div1 = document.createElement("div");
 		div1.className = "col-lg-3 col-md-6 mb-4";
@@ -183,32 +183,35 @@
 	  favButton.innerHTML = "N/A";
 	  var link = StorageLink;
 	  var bool = "t/f";
-	  function setBool() {
-	    $.post("newitems-fav.php", {source: link})
-       .done(function(data) { bool = data; });
-      //alert(bool);
-    };//setBool
-    setBool();
-	  //Set innerHTML for buttons
-	  if (bool === "true")
-	    favButton.innerHTML = "Remove from favourites";
-	  else if (bool === "false")
-	    favButton.innerHTML = "Add to favourites";
-	  else
-	    favButton.innerHTML = "Change me";
-	  //fin innerHTML
 	  favButton.onclick = function () {
 	    //By this time, bool takes the value of <data>
       $.post("fav-btn.php", {source: link, favs: bool})
        .done(function(data) { alert("Data: " + data); });
 	  };
-
+	 	    
 		fragment.appendChild(div1);
 		div1.appendChild(div2);
 		div2.appendChild(image);
 		div2.appendChild(div3);
 		div3.appendChild(favButton);
 		ye.appendChild(fragment);
+		
+    function setInnerHTML() {
+      alert(bool);
+      if (bool === "true")
+	      favButton.innerHTML = "Remove from favourites";
+	    else if (bool === "false")
+	      favButton.innerHTML = "Add to favourites";
+	    else
+	      favButton.innerHTML = "Change me";
+    }
+    
+	  //After the webpage has loaded, execute this function
+	  window.addEventListener("load", function(){
+      $.post("newitems-fav.php", {source: link})
+       .done(function(data){bool = data;});
+      setInnerHTML();
+    });
 	}
 
 	var index;
