@@ -16,7 +16,7 @@
   {
     echo "Connection succesful!";
   }
-  
+
   /*
   If favourite button passes "true" value:
   To get clothes ID, get the image source as a string
@@ -52,7 +52,9 @@
     echo "No results found";
   }
   //Find userID
-  $userID = 7; //Testing with IDs that already exist as child_table needs foreign keys
+  session_start();
+  $userID = $_SESSION['uid'];
+  
   echo "UserID: ".$userID."<br>";
   if ($favourite === "false")
   {
