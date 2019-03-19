@@ -188,14 +188,14 @@
       $.post("fav-btn.php", {source: link, favs: bool})
        .done(function(data) { alert("Data: " + data); });
 	  };
-	 	    
+
 		fragment.appendChild(div1);
 		div1.appendChild(div2);
 		div2.appendChild(image);
 		div2.appendChild(div3);
 		div3.appendChild(favButton);
 		ye.appendChild(fragment);
-		
+
     function setInnerHTML() {
       alert(bool);
       if (bool === "true")
@@ -205,7 +205,7 @@
 	    else
 	      favButton.innerHTML = "Change me";
     }
-    
+
 	  //After the webpage has loaded, execute this function
 	  window.addEventListener("load", function(){
       $.post("newitems-fav.php", {source: link})
@@ -250,7 +250,7 @@
 
 
 
-                    <li class="foot-menu-item mbr-fonts-style display-7">Developed by W1</li><li class="foot-menu-item mbr-fonts-style display-7">Terms &amp; Conditions</li><li class="foot-menu-item mbr-fonts-style display-7">Contact Us</li></ul>
+                    <li class="foot-menu-item mbr-fonts-style display-7">Developed by W1</li><li class="foot-menu-item mbr-fonts-style display-7"><a  href = "Termandconditions.html">Terms &amp; Conditions</a></li><li class="foot-menu-item mbr-fonts-style display-7">Contact Us</li></ul>
                 </div>
                 <div class="row social-row">
                     <div class="social-list align-right pb-2">
