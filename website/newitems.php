@@ -191,6 +191,7 @@
         isFavourite = "false";
       else if(favButton.innerHTML === "Remove from favourites")
         isFavourite = "true";
+        
       $.post("fav-btn.php", {source: link, favs: isFavourite})
        .done(function(data) {
          alert("Data: " + data);
