@@ -187,7 +187,13 @@
 	  favButton.onclick = function () {
 	    //By this time, bool takes the value of <data>
       $.post("fav-btn.php", {source: link, favs: bool})
-       .done(function(data) { alert("Data: " + data); });
+       .done(function(data) {
+         alert("Data: " + data);
+         if(favButton.innerHTML === "Remove from favourites")
+            favButton.innerHTML = "Add to favourites";
+         else if (favButton.innerHTML === "Add to favourites")
+            favButton.innerHTML = "Remove from favourites";
+       });
 	  };
 
 		fragment.appendChild(div1);
