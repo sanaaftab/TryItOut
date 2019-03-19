@@ -96,7 +96,7 @@
       <div class="list-group list-group-flush">
         <a href="explore.php" class="list-group-item list-group-item-action bg-light">Explore</a>
         <a href="newitems.php" class="list-group-item list-group-item-action bg-light">New Items</a>
-        <a href="create.html" class="list-group-item list-group-item-action bg-light">Create</a>
+        <a href="create.php" class="list-group-item list-group-item-action bg-light">Create</a>
         <a href="myaccount.php" class="list-group-item list-group-item-action bg-light">My Account</a>
       </div>
       <button class="btn" style="position: absolute; bottom: 10px; width: 90%" >Login</button>
