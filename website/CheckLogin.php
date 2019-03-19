@@ -24,7 +24,7 @@
 	$query = mysqli_prepare($connection, "SELECT Password FROM USERS WHERE Email = ?;");
 	//binding parameters
     mysqli_stmt_bind_param($query, "s", $Email);
-    
+
 	//executes query
 	mysqli_stmt_execute($query);
 	//binds results
@@ -41,9 +41,9 @@
 	mysqli_stmt_execute($uIDQuery);
 
 	mysqli_stmt_bind_result($uIDQuery, $uID);
-	
+
     mysqli_stmt_fetch($uIDQuery);
-    
+
 	mysqli_stmt_close($uIDQuery);
 	//$uID = mysqli_stmt_fetch($uIDQuery);
 	//checks to see if the password entered is the same as the original password
@@ -53,7 +53,7 @@
 		echo $uID;
 		session_start();
 	    $_SESSION['uid'] = $uID;
-		//header("Location: testSession.php");
+		header("Location: explore.php");
 	}
 	else
 	{
