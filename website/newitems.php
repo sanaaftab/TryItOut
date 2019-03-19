@@ -196,22 +196,20 @@
 		div3.appendChild(favButton);
 		ye.appendChild(fragment);
 
-    function setInnerHTML() {
-      alert(bool);
-      if (bool === "true")
-	      favButton.innerHTML = "Remove from favourites";
-	    else if (bool === "false")
-	      favButton.innerHTML = "Add to favourites";
-	    else
-	      favButton.innerHTML = "Change me";
-    }
 
 	  //After the webpage has loaded, execute this function
 	  window.addEventListener("load", function(){
       $.post("newitems-fav.php", {source: link})
-       .done(function(data){bool = data;});
-      setInnerHTML();
+       .done(function(data){bool = data;
+                         if (bool === "true")
+                   	      favButton.innerHTML = "Remove from favourites";
+                   	    else if (bool === "false")
+                   	      favButton.innerHTML = "Add to favourites";
+                   	    else
+                   	      favButton.innerHTML = "Change me";
+      });
     });
+
 	}
 
 	var index;
