@@ -80,7 +80,7 @@
 			$clothesResult = mysqli_stmt_get_result($clothesQuery);
 			$linkRow = mysqli_fetch_assoc($clothesResult);
 			print_r(mysqli_fetch_row($clothesResult));
-			$clothesLinks[] = $linkRow['StorageLink'];
+			$clothesLinks[] = array("StorageLink" => $linkRow['StorageLink']);
 		}
 	}
 
