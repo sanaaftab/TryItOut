@@ -9,9 +9,11 @@
 	$Password = $_POST["PasswordPost"];
 	//Check if any data has been entered first
 	if ($Email === "" || $Password === "")
-	{
     backToLogin('EMail and Password can not be left blank!');
-	}
+  //Check if the email is of valid format
+	else if (filter_var($Email, FILTER_VALIDATE_EMAIL) === false)
+	  backToLogin('Please enter a valid email.');
+	  
 	//make connection
 	$connection = new mysqli($hostname, $mysqlusername, $mysqlpassword, $dbName);
 	//check connection
@@ -21,8 +23,9 @@
   //Query to fecth users row based on email entry
 	$emailQuery = "SELECT * FROM `USERS` WHERE `Email` = '".$Email."';";
 	$checkEmail = mysqli_query($connection, $emailQuery);
+	$row = $checkEmail->fetch_assoc();
 	//If email exists, check the password against the database
-	if ($row = $checkEmail->fetch_assoc())
+	if ($row['Email'] === $Email)
 	{
 	  if ($row['Password'] === $Password)
 	  {
@@ -31,12 +34,20 @@
 	    $_SESSION['uid'] = $row['UserID'];
 	    header('Location: explore.php');
     }
+    else
+    {
+      backToLogin('Wrong password!');
+    }
   } 
+  else
+  {
+    backToLogin('Wrong email!');
+  }
   
 	function backToLogin($message)
 	{
-	  echo "<script>alert('Fatal error: ' + ".$message.");</script>";
-	  header('Location: http://localhost/Project/website/login.html');
+	  echo "Fatal error: ".$message;
+	  //header('Location: http://localhost/Project/website/login.html');
 	  exit;
 	}//backToLogin
   
