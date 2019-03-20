@@ -43,9 +43,12 @@
 		die("Connection failed. ". mysqli_connect_error());
 	}
 
-    session_start();
-    if(!isset($_SESSION['uid'])) {
+  session_start();
+
+  $loggedIn = "true";
+  if(!isset($_SESSION['uid'])) {
 		header("Location: login.html");
+    $loggedIn = "false";
 	}
 	else {
 		$uID = $_SESSION['uid'];
@@ -78,33 +81,33 @@
 		}
 	}
 	$outfitsLinks = array();
-	
+
 	$outfitsQuery = mysqli_prepare($connection,"SELECT StorageLink
 						 	                    FROM OUTFITS
 						 				        WHERE UserID = ?;");
-						 				 
+
     mysqli_stmt_bind_param($outfitsQuery, "i", $uID);
-    
+
     mysqli_stmt_execute($outfitsQuery);
-    
+
     $outfitsResult = mysqli_stmt_get_result($outfitsQuery);
     while($row = mysqli_fetch_assoc($outfitsResult))
 	{
 		$outfitsLinks[] = $row['StorageLink'];
 	}
-	
+
 	$usernameQuery = mysqli_prepare($connection, "SELECT Username
 	                                           FROM USERS
 	                                           WHERE UserID = ?;");
-	                                           
+
     mysqli_stmt_bind_param($usernameQuery, "i", $uID);
-    
+
     mysqli_stmt_execute($usernameQuery);
-    
+
     $usernameResult = mysqli_stmt_get_result($usernameQuery);
-    
+
     $username = mysqli_fetch_row($usernameResult)[0];
-    
+
 	#class ClothesClass{
 	#	public $StorageLink = "";
 	#	public $ShopLink= "";
@@ -130,7 +133,21 @@
         <a href="create.php" class="list-group-item list-group-item-action bg-light">Create</a>
         <a href="myaccount.php" class="list-group-item list-group-item-action bg-light">My Account</a>
       </div>
-      <button class="btn" style="position: absolute; bottom: 10px; width: 90%" >Login</button>
+      <button id="login/logout" class="btn" style="position: absolute; bottom: 10px; width: 90%" >Login</button>
+      <script>
+        var loginButton = document.getElementById("login/logout");
+        var isLoggedIn = "<?php echo $loggedIn; ?>";
+        if (isLoggedIn === "true")
+          loginButton.innerHTML = "Logout";
+
+        loginButton.addEventListener("click", function(){
+          if (loginButton.innerHTML === "Login")
+            window.location = "login.html";
+          else {
+            window.location = "logout.php";
+          }
+        });
+      </script>
     </div>
 
   <!-- Page content -->
@@ -199,7 +216,7 @@
 		let div1 = document.createElement("div");
 		div1.className = "container";
 		div1.style.width = "100%";
-		
+
         let div2 = document.createElement("div");
         div2.className = "mySlides";
 		let image = new Image();
@@ -211,7 +228,7 @@
 		div2.appendChild(image);
 		ya.appendChild(fragment);
 	}
-	
+
 	var index;
 	for (index = 0; index < outfitsLinks.length ; index++){
 		createPicDiv(outfitsLinks[index])
