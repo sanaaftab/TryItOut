@@ -47,7 +47,7 @@
 	function backToLogin($message)
 	{
 	  echo "Fatal error: ".$message;
-	  //header('Location: http://localhost/Project/website/login.html');
+	  header('Location: login.html');
 	  exit;
 	}//backToLogin
   
