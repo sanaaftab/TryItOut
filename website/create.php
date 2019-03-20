@@ -194,7 +194,7 @@
 		let div3 = document.createElement("div");
 		div3.className = "card-footer";
 
-    let favButton = document.createElement("favButton");
+    /*let favButton = document.createElement("favButton");
 		favButton.className = "btn btn-primary";
 	  favButton.innerHTML = "N/A";
 	  var link = StorageLink;
@@ -215,18 +215,18 @@
          else if (isFavourite === "false")
             favButton.innerHTML = "Remove from favourites";
        });
-	  };
+	  };*/
 
 		fragment.appendChild(div1);
 		div1.appendChild(div2);
 		div2.appendChild(image);
 		div2.appendChild(div3);
-		div3.appendChild(favButton);
+		
 		ye.appendChild(fragment);
 
 
 	  //After the webpage has loaded, execute this function
-	  window.addEventListener("load", function(){
+	 /* window.addEventListener("load", function(){
       $.post("newitems-fav.php", {source: link})
        .done(function(data){bool = data;
                          if (bool === "true")
@@ -236,7 +236,7 @@
                    	    else
                    	      favButton.innerHTML = "Change me";
       });
-    });
+    });*/
 
 	}
 
