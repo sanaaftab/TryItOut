@@ -26,7 +26,7 @@
 
 				</div>
 				<div class="card-body">
-					<form action="CheckLogin.php" method="post">
+					<form action="checkMyLogin.php" method="post">
 						<div class="input-group form-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fas fa-envelope"></i></span>
@@ -80,11 +80,11 @@
 							<input type="password" name="PasswordCheckPost"class="form-control" placeholder="Confirm Password">
 						</div>
 						<div class="row align-items-center remember" style="padding-bottom: 10px">
-							<input type="checkbox">I agree to the &nbsp;<a href="Termandconditions.html" target="_blank" style="color: #cccccc">term and conditions</a> .
+							<input type="checkbox" onchange="document.getElementById('createBtn').disabled = !this.checked;">I agree to the &nbsp;<a href="Termandconditions.html" target="_blank" style="color: #cccccc">term and conditions</a> .
 						</div>
 
 						<div class="form-group">
-							<input type="submit" value="Create" class="btn float-right login_btn">
+							<input id="createBtn" type="submit" value="Create" class="btn float-right login_btn" disabled="true">
 						</div>
 
 					</form>

@@ -56,6 +56,41 @@
 		$uID = $_SESSION['uid'];
 	};
 
+ 
+ 
+ 
+  $clothesIDQuery = mysqli_prepare($connection,"SELECT ClothesID
+						 	                      FROM USERS_CLOTHES
+						 						  WHERE UserID = ?;");
+
+	mysqli_stmt_bind_param($clothesIDQuery, "i", $uID);
+	mysqli_stmt_execute($clothesIDQuery);
+	$clothesIDResult = mysqli_stmt_get_result($clothesIDQuery);
+	$clothesLinks = array();
+	$clothesQuery = mysqli_prepare($connection,"SELECT StorageLink
+						 	                    FROM CLOTHES
+						 				        WHERE ClothesID = ?;");
+	if(mysqli_num_rows($clothesIDResult) > 0)
+	{
+		//save image links in array
+		while($row = mysqli_fetch_assoc($clothesIDResult))
+		{
+			mysqli_stmt_bind_param($clothesQuery, "i", $row['ClothesID']);
+			mysqli_stmt_execute($clothesQuery);
+			$clothesResult = mysqli_stmt_get_result($clothesQuery);
+			$linkRow = mysqli_fetch_assoc($clothesResult);
+			print_r(mysqli_fetch_row($clothesResult));
+			$clothesLinks[] = array("StorageLink" => $linkRow['StorageLink']);
+		}
+	}
+
+	mysqli_stmt_bind_param($clothesQuery, "i", $cID);
+
+
+
+
+
+
   //SQL query to return all links in descending order
 	$sqlquery = "SELECT Name, ShopLink, StorageLink
 				FROM CLOTHES
@@ -156,8 +191,8 @@
         <div class="columnright">
 
           <div>
-            <button class="btn active">SHOW ALL</button>
-            <button class="btn" >FAVORITES</button>
+            <button class="btn" onclick="displayAll(clothesObjArray)" >SHOW ALL</button>
+            <button class="btn" onclick="displayAll(favClothesObjArray)" >FAVORITES</button>
           </div>
           <div class="scroll">
             <div class="row text-center">
@@ -172,9 +207,10 @@
 
 	//array of objects returned from php
 	var clothesObjArray =<?php echo json_encode($clothesList) ?>;
+  var favClothesObjArray =<?php echo json_encode($clothesLinks) ?>;
 
 	//function creates html takes two parameters which decide picture and and link on click
-	function createPicDiv(StorageLink, ShopLink, idVal){
+	function createPicDiv(StorageLink){
 		let div1 = document.createElement("div");
 		div1.className = "col-lg-3 col-md-6 mb-4";
 		div1.style.display = "inline-block";
@@ -184,7 +220,7 @@
 		div2.className = "cardshadow h-100";
 
 		let image = new Image();
-    image.id = idVal;
+   
 		image.src = StorageLink;
 		image.className = "card-img-top" ;
 		//image.onclick = function(){window.location.href = ShopLink};
@@ -196,57 +232,20 @@
 		let div3 = document.createElement("div");
 		div3.className = "card-footer";
 
-    /*let favButton = document.createElement("favButton");
-		favButton.className = "btn btn-primary";
-	  favButton.innerHTML = "N/A";
-	  var link = StorageLink;
-	  //var bool = "t/f"
-	  favButton.onclick = function () {
-
-      var isFavourite = "t/f";
-      if(favButton.innerHTML === "Add to favourites")
-        isFavourite = "false";
-      else if(favButton.innerHTML === "Remove from favourites")
-        isFavourite = "true";
-
-      $.post("fav-btn.php", {source: link, favs: isFavourite})
-       .done(function(data) {
-         alert("Data: " + data);
-         if(isFavourite === "true")
-            favButton.innerHTML = "Add to favourites";
-         else if (isFavourite === "false")
-            favButton.innerHTML = "Remove from favourites";
-       });
-	  };*/
-
+    ye.removeChild(fragment);
 		fragment.appendChild(div1);
 		div1.appendChild(div2);
 		div2.appendChild(image);
-	//	div2.appendChild(div3);
-		
 		ye.appendChild(fragment);
-
-
-	  //After the webpage has loaded, execute this function
-	 /* window.addEventListener("load", function(){
-      $.post("newitems-fav.php", {source: link})
-       .done(function(data){bool = data;
-                         if (bool === "true")
-                   	      favButton.innerHTML = "Remove from favourites";
-                   	    else if (bool === "false")
-                   	      favButton.innerHTML = "Add to favourites";
-                   	    else
-                   	      favButton.innerHTML = "Change me";
-      });
-    });*/
-
+	 
 	}
 
-	var index;
-	for (index =0; index < clothesObjArray.length ; index++){
-    let idParam = 'img' + parseInt(index);
-		createPicDiv(clothesObjArray[index]['StorageLink'], clothesObjArray[index]['ShopLink'], idParam);
-	}
+	var index, objArray;
+  function displayAll(objArray){
+    for (index =0; index < objArray.length ; index++){
+      createPicDiv(objArray[index]['StorageLink']);
+    }
+  } 
 
 </script>
 
