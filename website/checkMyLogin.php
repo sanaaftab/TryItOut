@@ -21,18 +21,34 @@
 		die("Connection failed. ". mysqli_connect_error());
 
   //Query to fecth users row based on email entry
-	$emailQuery = "SELECT * FROM `USERS` WHERE `Email` = '".$Email."';";
-	$checkEmail = mysqli_query($connection, $emailQuery);
-	$row = $checkEmail->fetch_assoc();
+	$emailQuery = mysqli_prepare($connection, "SELECT `Email` FROM `USERS` WHERE `Email` = ?;");
+	mysqli_stmt_bind_param($emailQuery, "s", $Email);
+	mysqli_stmt_execute($emailQuery);
+	mysqli_stmt_bind_result($emailQuery, $userEmail);
+	mysqli_stmt_fetch($emailQuery);
+	mysqli_stmt_close($emailQuery);
 	//If email exists, check the password against the database
-	if ($row['Email'] === $Email)
+	if ($userEmail === $Email)
 	{
-	  if ($row['Password'] === $Password)
+	  //Query to fecth users password based on email entry
+	  $passQuery = mysqli_prepare($connection, "SELECT `Password` FROM `USERS` WHERE `Email` = ?;");
+	  mysqli_stmt_bind_param($passQuery, "s", $Email);
+	  mysqli_stmt_execute($passQuery);
+	  mysqli_stmt_bind_result($passQuery, $userPass);
+	  mysqli_stmt_fetch($passQuery);
+	  mysqli_stmt_close($passQuery);
+	  if ($userPass === $Password)
 	  {
 	    //If both email and pass are correct make a new session and assignt he userID
 	    session_start();
-	    $_SESSION['uid'] = $row['UserID'];
-	    header('Location: explore.php');
+	    $idQuery = mysqli_prepare($connection, "SELECT `UserID` FROM `USERS` WHERE `Email` = ?;");
+	    mysqli_stmt_bind_param($idQuery, "s", $Email);
+	    mysqli_stmt_execute($idQuery);
+	    mysqli_stmt_bind_result($idQuery, $userID);
+	    mysqli_stmt_fetch($idQuery);
+	    mysqli_stmt_close($idQuery);
+	    $_SESSION['uid'] = $userID;
+	    echo "<script>window.location.assign('http://localhost/Project/website/explore.php');</script>";
     }
     else
     {

@@ -24,7 +24,7 @@
 	$connection = new mysqli($hostname, $mysqlusername, $mysqlpassword, $dbName);
 	if($connection->connect_error)
 	{
-		die("Connection failed. ".  $connection->connect_error);
+		die("Connection failed: ".$connection->connect_error);
 	}
 	
 	//Checks that the password entered was correct

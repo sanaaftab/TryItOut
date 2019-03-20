@@ -42,7 +42,7 @@
 
 	mysqli_stmt_bind_result($uIDQuery, $uID);
 
-    mysqli_stmt_fetch($uIDQuery);
+  mysqli_stmt_fetch($uIDQuery);
 
 	mysqli_stmt_close($uIDQuery);
 	//$uID = mysqli_stmt_fetch($uIDQuery);
