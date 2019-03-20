@@ -46,9 +46,11 @@
   
 	function backToLogin($message)
 	{
-	  echo "Fatal error: ".$message;
-	  header('Location: login.html');
+    //ob_start();
+	  echo "Fatal error: $message ";
+	  //header('Location: login.html');
 	  exit;
+	  //ob_end_flush();
 	}//backToLogin
   
 ?>

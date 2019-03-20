@@ -27,7 +27,6 @@
 		die("Connection failed. ".  $connection->connect_error);
 	}
 	
-			
 	//Checks that the password entered was correct
 	if($Password == $PasswordCheck)
 	{
@@ -36,7 +35,7 @@
 		$query = $connection->prepare("INSERT INTO USERS(Username, Password, Email)
                 										VALUES (?,?,?)");
 		if($query == false)
-			echo "could not create user";
+			echo "Could not create new user";
 	
 		//binding parameters
 		$query->bind_param("sss", $Username, $Password, $Email);
@@ -44,8 +43,7 @@
 		//query executed and closed
 		if (!$query->execute())
 		{
-			echo "Execute failed: (" . $query->errno . ") " . $query->error;
-			header('Location: login.html');
+			backToLogin('Execution failed: ('.$query->errno.')'.$query->error);
 		}
 		else
 		  header('Location: explore.html');
