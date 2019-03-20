@@ -220,7 +220,7 @@
 		fragment.appendChild(div1);
 		div1.appendChild(div2);
 		div2.appendChild(image);
-		div2.appendChild(div3);
+	//	div2.appendChild(div3);
 		
 		ye.appendChild(fragment);
 
