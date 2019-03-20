@@ -276,7 +276,7 @@
 
 
 
-                    <li class="foot-menu-item mbr-fonts-style display-7">Developed by W1</li><li class="foot-menu-item mbr-fonts-style display-7"><a  href = "Termandconditions.html">Terms &amp; Conditions</a></li><li class="foot-menu-item mbr-fonts-style display-7">Contact Us</li></ul>
+                    <li class="foot-menu-item mbr-fonts-style display-7">Developed by W1</li><li class="foot-menu-item mbr-fonts-style display-7"><a  href = "Termandconditions.php">Terms &amp; Conditions</a></li><li class="foot-menu-item mbr-fonts-style display-7">Contact Us</li></ul>
                 </div>
                 <div class="row social-row">
                     <div class="social-list align-right pb-2">
