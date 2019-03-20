@@ -192,7 +192,7 @@
 
           <div>
             <button class="btn" onclick="displayAll(clothesObjArray)" >SHOW ALL</button>
-            <button class="btn" onclick="displayAll(favClothesObjArray") >FAVORITES</button>
+            <button class="btn" onclick="displayAll(favClothesObjArray)" >FAVORITES</button>
           </div>
           <div class="scroll">
             <div class="row text-center">
