@@ -46,14 +46,16 @@
 		die("Connection failed. ". mysqli_connect_error());
 	}
 
-    session_start();
+  session_start();
 
-    if(!isset($_SESSION['uid'])) {
+  $loggedIn = "true";
+  if(!isset($_SESSION['uid'])) {
 		header("Location: login.html");
+    $loggedIn = "false";
 	}
 	else {
 		$uID = $_SESSION['uid'];
-	};
+	}
 	//SQL query to return all links in descending order
 	$sqlquery = "SELECT Name, ShopLink, StorageLink
 				FROM CLOTHES
@@ -99,7 +101,21 @@
         <a href="create.php" class="list-group-item list-group-item-action bg-light">Create</a>
         <a href="myaccount.php" class="list-group-item list-group-item-action bg-light">My Account</a>
       </div>
-      <button class="btn" style="position: absolute; bottom: 10px; width: 90%" >Login</button>
+      <button id="login/logout" class="btn" style="position: absolute; bottom: 10px; width: 90%" >Login</button>
+      <script>
+        var loginButton = document.getElementById("login/logout");
+        var isLoggedIn = "<?php echo $loggedIn; ?>";
+        if (isLoggedIn === "true")
+          loginButton.innerHTML = "Logout";
+
+        loginButton.addEventListener("click", function(){
+          if (loginButton.innerHTML === "Login")
+            window.location = "login.html";
+          else {
+            window.location = "logout.php";
+          }
+        });
+      </script>
     </div>
     <!-- /#sidebar-wrapper -->
 

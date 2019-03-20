@@ -59,8 +59,8 @@
 	mysqli_stmt_execute($clothesIDQuery);
 	$clothesIDResult = mysqli_stmt_get_result($clothesIDQuery);
 	$clothesLinks = array();
-  $clothesShops = array();
-	$clothesQuery = mysqli_prepare($connection,"SELECT StorageLink,  ShopLink
+    $clothesShops = array();
+	$clothesQuery = mysqli_prepare($connection,"SELECT StorageLink, ShopLink
 						 	                    FROM CLOTHES
 						 				        WHERE ClothesID = ?;");
 	if(mysqli_num_rows($clothesIDResult) > 0)
@@ -74,11 +74,26 @@
 			$linkRow = mysqli_fetch_assoc($clothesResult);
 			print_r(mysqli_fetch_row($clothesResult));
 			$clothesLinks[] = $linkRow['StorageLink'];
-      $clothesShops[] = $linkRow['ShopLink'];
+            $clothesShops[] = $linkRow['ShopLink'];
 		}
 	}
-
-	mysqli_stmt_bind_param($clothesQuery, "i", $cID);
+	$outfitsLinks = array();
+	
+	$outfitsQuery = mysqli_prepare($connection,"SELECT StorageLink
+						 	                    FROM OUTFITS
+						 				        WHERE UserID = ?;");
+						 				 
+    mysqli_stmt_bind_param($outfitsQuery, "i", $uID);
+    
+    mysqli_stmt_execute($outfitsQuery);
+    
+    $outfitsResult = mysqli_stmt_get_result($outfitsQuery);
+    while($row = mysqli_fetch_assoc($outfitsResult))
+	{
+		$outfitsLinks[] = $row['StorageLink'];
+	}
+	
+	
 	#class ClothesClass{
 	#	public $StorageLink = "";
 	#	public $ShopLink= "";
@@ -157,24 +172,40 @@
         <h2>MY DESIGNS</h2>
         <div class="container">
 
-          <div class="mySlides">
-            <div class="numbertext">1 / 3</div>
-            <img src="outfit1.jpg" style="width:100%">
-          </div>
-
-          <div class="mySlides">
-            <div class="numbertext">2 / 3</div>
-            <img src="outfit2.jpg" style="width:100%">
-          </div>
-
-          <div class="mySlides">
-            <div class="numbertext">3 / 3</div>
-            <img src="outfit3.jpg" style="width:100%">
-          </div>
+                <ya id="ya" >
+                </ya>
 
           <a class="prev" onclick="plusSlides(-1)">❮</a>
           <a class="next" onclick="plusSlides(1)">❯</a>
+<script>
 
+	var element  = document.getElementById('ul');
+	var fragment = document.createDocumentFragment();
+
+	//array of objects returned from php
+	var outfitsLinks =<?php echo json_encode($outfitsLinks) ?>;
+	function createPicDiv(StorageLink){
+		let div1 = document.createElement("div");
+		div1.className = "container";
+		div1.style.width = "100%";
+		
+        let div2 = document.createElement("div");
+        div2.className = "mySlides";
+		let image = new Image();
+		image.src = StorageLink;
+		image.style.width = "100%";
+
+		fragment.appendChild(div1);
+		div1.appendChild(div2);
+		div2.appendChild(image);
+		ya.appendChild(fragment);
+	}
+	
+	var index;
+	for (index = 0; index < outfitsLinks.length ; index++){
+		createPicDiv(outfitsLinks[index])
+	}
+</script>
 <!-- might need to remove this bottom feature entirely as im confused on how it works -->
 
       <!--    <div class="row">
@@ -245,7 +276,7 @@
 
 	//array of objects returned from php
 	var clothesLinks =<?php echo json_encode($clothesLinks) ?>;
-  var clothesShops =<?php echo json_encode($clothesShops) ?>;
+    var clothesShops =<?php echo json_encode($clothesShops) ?>;
 	 //function creates html takes two parameters which decide picture and and link on click
 	function createPicDiv(StorageLink, ShopLink){
 		let div1 = document.createElement("div");
@@ -261,7 +292,7 @@
 		image.className = "card-img-top" ;
 		image.style.height = 'auto';
 		image.style.width = 200;
-    image.onclick = function(){window.location.href = ShopLink};
+        image.onclick = function(){window.location.href = ShopLink};
 
 
 
