@@ -174,7 +174,7 @@
 	var clothesObjArray =<?php echo json_encode($clothesList) ?>;
 
 	//function creates html takes two parameters which decide picture and and link on click
-	function createPicDiv(StorageLink, ShopLink){
+	function createPicDiv(StorageLink, ShopLink, idVal){
 		let div1 = document.createElement("div");
 		div1.className = "col-lg-3 col-md-6 mb-4";
 		div1.style.display = "inline-block";
@@ -184,6 +184,7 @@
 		div2.className = "cardshadow h-100";
 
 		let image = new Image();
+    image.id = idVal;
 		image.src = StorageLink;
 		image.className = "card-img-top" ;
 		image.onclick = function(){window.location.href = ShopLink};
@@ -243,7 +244,8 @@
 
 	var index;
 	for (index =0; index < clothesObjArray.length ; index++){
-		createPicDiv(clothesObjArray[index]['StorageLink'], clothesObjArray[index]['ShopLink']);
+    let idParam = 'img' + parseInt(index);
+		createPicDiv(clothesObjArray[index]['StorageLink'], clothesObjArray[index]['ShopLink'], idParam);
 	}
 
 </script>
