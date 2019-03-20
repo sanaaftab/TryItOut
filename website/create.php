@@ -179,7 +179,8 @@
 		div1.className = "col-lg-3 col-md-6 mb-4";
 		div1.style.display = "inline-block";
 		div1.style.height = 500;
-
+    div1.draggable = 'true';
+    div1.ondragstart = 'drag(event)';
 		let div2 = document.createElement("div");
 		div2.className = "cardshadow h-100";
 
@@ -190,8 +191,7 @@
 		//image.onclick = function(){window.location.href = ShopLink};
 		image.style.height = 'auto';
 		image.style.width = 200;
-    image.draggable = 'true';
-    image.ondragstart = 'drag(event)';
+  
 
 		let div3 = document.createElement("div");
 		div3.className = "card-footer";
