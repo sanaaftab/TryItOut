@@ -27,6 +27,35 @@
 
   <!-- JQuery -->
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+  <?php
+
+	ini_set('display_errors', 1);
+	$hostname = "dbhost.cs.man.ac.uk";
+	$mysqlusername = "n33565af";
+	$mysqlpassword = "databasepass";
+	$dbName = "2018_comp10120_w1";
+
+	//this script will return the directory address of the clothes with name of the clothes and store
+
+	//make connection
+	$connection = new mysqli($hostname, $mysqlusername, $mysqlpassword, $dbName);
+
+
+	if(!$connection)
+	{
+		die("Connection failed. ". mysqli_connect_error());
+	}
+
+    session_start();
+
+    if(!isset($_SESSION['uid'])) {
+		header("Location: login.html");
+	}
+	else {
+		$uID = $_SESSION['uid'];
+	};
+  ?>
 </head>
 
 <body>
