@@ -187,7 +187,7 @@
     image.id = idVal;
 		image.src = StorageLink;
 		image.className = "card-img-top" ;
-		image.onclick = function(){window.location.href = ShopLink};
+		//image.onclick = function(){window.location.href = ShopLink};
 		image.style.height = 'auto';
 		image.style.width = 200;
     image.draggable = 'true';
