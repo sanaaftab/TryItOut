@@ -61,8 +61,8 @@
 		if (!$query->execute())
 			backToLogin('Execution failed: ('.$query->errno.')'.$query->error);
 		else
-		  header('Location: explore.html');
-		  		
+		  header('Location: explore.php');
+	}  		
 		mysqli_stmt_close($query);
 		
 	function backToLogin($message)
