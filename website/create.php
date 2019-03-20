@@ -232,7 +232,7 @@
 		let div3 = document.createElement("div");
 		div3.className = "card-footer";
 
-    
+    ye.removeChild(fragment);
 		fragment.appendChild(div1);
 		div1.appendChild(div2);
 		div2.appendChild(image);
