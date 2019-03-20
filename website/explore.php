@@ -173,6 +173,11 @@
 		image.className = "card-img-top" ;
 		image.style.height = 'auto';
 		image.style.width = 200;
+    image.onclick = function(){
+      var refNumber = StorageLink.split("/");
+      refNumber = refNumber[1].split(".")[0];
+      window.location.href = "outfit.php?o="+refNumber;
+    };
 
 
 		let div3 = document.createElement("div");

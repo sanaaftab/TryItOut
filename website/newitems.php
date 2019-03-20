@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>New Items</title>
+  <title>Clothes</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -131,7 +131,7 @@
         <div class="container">
             <div class="media-container-row">
                 <div class="title col-12 col-md-8">
-                    <h1 class="align-center mbr-bold mbr-white pb-3 mbr-fonts-style display-1" style="color:black">NEW ITEMS</h1>
+                    <h1 class="align-center mbr-bold mbr-white pb-3 mbr-fonts-style display-1" style="color:black">Clothes</h1>
 
 
 
