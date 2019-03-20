@@ -220,7 +220,7 @@
 		div2.className = "cardshadow h-100";
 
 		let image = new Image();
-    image.id = idVal;
+   
 		image.src = StorageLink;
 		image.className = "card-img-top" ;
 		//image.onclick = function(){window.location.href = ShopLink};
