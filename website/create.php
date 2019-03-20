@@ -240,8 +240,8 @@
 	 
 	}
 
-	var index, objArr;
-  function displayAll(objArr){
+	var index, objArray;
+  function displayAll(objArray){
     for (index =0; index < objArray.length ; index++){
       createPicDiv(objArray[index]['StorageLink']);
     }
