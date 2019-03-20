@@ -10,9 +10,6 @@
 	//Check if any data has been entered first
 	if ($Email === "" || $Password === "")
     backToLogin('Email and Password can not be left blank!');
-  //Check if the email is of valid format
-	else if (filter_var($Email, FILTER_VALIDATE_EMAIL) === false)
-	  backToLogin('Please enter a valid email.');
 	  
 	//make connection
 	$connection = new mysqli($hostname, $mysqlusername, $mysqlpassword, $dbName);
@@ -49,7 +46,7 @@
 	    mysqli_stmt_fetch($idQuery);
 	    mysqli_stmt_close($idQuery);
 	    $_SESSION['uid'] = $userID;
-	    echo "<script>window.location.assign('http://localhost/Project/website/explore.php');</script>";
+	    echo "<script>window.location.assign('explore.php');</script>";
     }
     else
     {
@@ -64,7 +61,7 @@
 	function backToLogin($message)
 	{
 	  echo "<script>alert('Fatal error: ".$message."');</script>";
-	  echo "<script>window.location.assign('http://localhost/Project/website/login.html');</script>";
+	  echo "<script>window.location.assign('login.html');</script>";
 	  exit;
 	}//backToLogin
   

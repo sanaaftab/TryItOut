@@ -68,7 +68,7 @@
 	function backToLogin($message)
 	{
 	  echo "<script>alert('".$message."');</script>";
-	  echo "<script>window.location.assign('http://localhost/Project/website/login.html');</script>";
+	  echo "<script>window.location.assign('login.html');</script>";
 	  exit;
 	}//backToLogin
 ?>
