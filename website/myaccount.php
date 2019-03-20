@@ -59,7 +59,8 @@
 	mysqli_stmt_execute($clothesIDQuery);
 	$clothesIDResult = mysqli_stmt_get_result($clothesIDQuery);
 	$clothesLinks = array();
-	$clothesQuery = mysqli_prepare($connection,"SELECT StorageLink
+  $clothesShops = array();
+	$clothesQuery = mysqli_prepare($connection,"SELECT StorageLink,  ShopLink
 						 	                    FROM CLOTHES
 						 				        WHERE ClothesID = ?;");
 	if(mysqli_num_rows($clothesIDResult) > 0)
@@ -73,6 +74,7 @@
 			$linkRow = mysqli_fetch_assoc($clothesResult);
 			print_r(mysqli_fetch_row($clothesResult));
 			$clothesLinks[] = $linkRow['StorageLink'];
+      $clothesShops[] = $linkRow['ShopLink'];
 		}
 	}
 
@@ -243,8 +245,9 @@
 
 	//array of objects returned from php
 	var clothesLinks =<?php echo json_encode($clothesLinks) ?>;
+  var clothesShops =<?php echo json_encode($clothesShops) ?>;
 	 //function creates html takes two parameters which decide picture and and link on click
-	function createPicDiv(StorageLink){
+	function createPicDiv(StorageLink, ShopLink){
 		let div1 = document.createElement("div");
 		div1.className = "col-lg-3 col-md-6 mb-4";
 		div1.style.display = "inline-block";
@@ -258,7 +261,7 @@
 		image.className = "card-img-top" ;
 		image.style.height = 'auto';
 		image.style.width = 200;
-
+    image.onclick = function(){window.location.href = ShopLink};
 
 
 
@@ -271,7 +274,7 @@
 
 	var index;
 	for (index = 0; index < clothesLinks.length ; index++){
-		createPicDiv(clothesLinks[index]);//, clothesObjArray[index]['ShopLink']);
+		createPicDiv(clothesLinks[index], clothesShops[index]);//, clothesObjArray[index]['ShopLink']);
 	}
 
 
