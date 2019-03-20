@@ -93,7 +93,7 @@
 		$outfitsLinks[] = $row['StorageLink'];
 	}
 	
-	$usernameQuery = mysqli_prepare($connect, "SELECT Username
+	$usernameQuery = mysqli_prepare($connection, "SELECT Username
 	                                           FROM USERS
 	                                           WHERE UserID = ?;");
 	                                           
@@ -103,7 +103,7 @@
     
     $usernameResult = mysqli_stmt_get_result($usernameQuery);
     
-    $username = mysqli_fetch_row($usernameQuery);
+    $username = mysqli_fetch_row($usernameResult)[0];
     
 	#class ClothesClass{
 	#	public $StorageLink = "";
@@ -174,7 +174,7 @@
 
 
     <div class="outer">
-      <h1>Welcome <?php echo $username; ?></h1>
+      <h1 style="text-align: center; padding-bottom: 10px;">Welcome <?php echo $username; ?></h1>
 
     <div class = "row">
 
