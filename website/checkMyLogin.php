@@ -9,7 +9,7 @@
 	$Password = $_POST["PasswordPost"];
 	//Check if any data has been entered first
 	if ($Email === "" || $Password === "")
-    backToLogin('EMail and Password can not be left blank!');
+    backToLogin('Email and Password can not be left blank!');
   //Check if the email is of valid format
 	else if (filter_var($Email, FILTER_VALIDATE_EMAIL) === false)
 	  backToLogin('Please enter a valid email.');
@@ -41,6 +41,7 @@
 	  {
 	    //If both email and pass are correct make a new session and assignt he userID
 	    session_start();
+	    //Query to fecth users id based on email entry
 	    $idQuery = mysqli_prepare($connection, "SELECT `UserID` FROM `USERS` WHERE `Email` = ?;");
 	    mysqli_stmt_bind_param($idQuery, "s", $Email);
 	    mysqli_stmt_execute($idQuery);
@@ -62,7 +63,7 @@
   
 	function backToLogin($message)
 	{
-	  echo "<script>alert('Fatal error: +".$message."');</script>";
+	  echo "<script>alert('Fatal error: ".$message."');</script>";
 	  echo "<script>window.location.assign('http://localhost/Project/website/login.html');</script>";
 	  exit;
 	}//backToLogin
