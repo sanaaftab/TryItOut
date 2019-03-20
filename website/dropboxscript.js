@@ -220,7 +220,10 @@ function uploadImage() {
 }
 
 function saveImage() {
-
+  if (itemsBeingUsed.length < 1){
+    alert("Atleast 1 item must be used");
+    return;
+  }
   //remove all transformes and removeButton
   stage.find('Transformer').destroy();
   selectedRectangle = null;
@@ -229,14 +232,15 @@ function saveImage() {
   layer.draw();
 
   var imageAsDataURL = stage.toDataURL();
-
+  var outfitURL;
 
     $.post("save.php",{imageData: imageAsDataURL, urlsOfClothes: urlsOfItemsBeingUsed})
       .done(function(data){
-        alert(data);
+        if(data.startsWith("outfit.php?o=")){
+          outfitURL = data;
+          window.location = outfitURL;
+        }
+        else
+          alert(data);
   });
-
-  //window.location = "save.php";
-
-  //location.replace("save.php");
 }

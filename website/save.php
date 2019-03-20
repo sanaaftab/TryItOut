@@ -35,9 +35,11 @@
   }
 
   //figuring out a unique location for the outfit
-  $fileLocation = "outfits/" .  uniqid() . ".png";
+	$return = uniqid();
+  $fileLocation = "outfits/" . $return . ".png";
   while (file_exists($fileLocation)){
-    $fileLocation = "outfits/" . uniqid() . ".png";
+		$return = uniqid();
+    $fileLocation = "outfits/" . $return . ".png";
 	}
 
   // SAVING THE DATA IN THE PNG FILE
@@ -70,7 +72,6 @@
     if ($result->num_rows > 0){
       while($row = $result->fetch_assoc())
       {
-        echo "OutfitID: ".$row["OutfitID"]."<br>";
         $OutfitID = $row["OutfitID"];
       }
     }else{
@@ -86,7 +87,6 @@
     {
       while($row = $result1->fetch_assoc())
       {
-        echo "ClotheID: ".$row["ClothesID"]."<br>";
         $clothesID = $row["ClothesID"];
       }
     }
@@ -111,5 +111,6 @@
            /*foreach($urls as $url){
               echo $url;
             }*/
+	echo "outfit.php?o=".$return;
   mysqli_close($connection);
 ?>
