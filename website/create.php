@@ -55,6 +55,27 @@
 	else {
 		$uID = $_SESSION['uid'];
 	};
+
+  //SQL query to return all links in descending order
+	$sqlquery = "SELECT Name, ShopLink, StorageLink
+				FROM CLOTHES
+			    ORDER BY ClothesID DESC";
+
+	$result = mysqli_query($connection,$sqlquery)or die(mysqli_error($connection));
+
+	$clothesList = array();
+	if(mysqli_num_rows($result) > 0)
+	{
+		while($row = mysqli_fetch_assoc($result)){
+
+			$clothesList[] = array("StorageLink" => $row['StorageLink'],  "ShopLink" => $row['ShopLink'], "Name" => $row['Name']);
+		}
+	}
+		else echo "Does not exist" ;
+
+
+	mysqli_close($connection);
+
   ?>
 </head>
 
@@ -141,65 +162,90 @@
           <div class="scroll">
             <div class="row text-center">
 
-              <div class="col-lg-3 mb-4">
-                <div class="cardCreate h-100">
-                  <img class="card-img-top" src="clothes/newlook/Suit_-_Jacket_1.png" draggable="true" ondragstart="drag(event)" alt="Jacket_2" padding="center">
-                </div>
-              </div>
+             
+					<ye id="ye" >
+          </ye>
+<script>
 
-              <div class="col-lg-3 mb-4">
-                <div class="cardCreate h-100">
-                  <img class="card-img-top" src="clothes/newlook/Shirt_1.png" draggable="true" ondragstart="drag(event)" alt="Shirt_1">
-                </div>
-              </div>
+	var element  = document.getElementById('ul');
+	var fragment = document.createDocumentFragment();
 
-              <div class="col-lg-3 mb-4">
-                <div class="cardCreate h-100">
-                  <img class="card-img-top" src="clothes/newlook/Jeans_1.png" draggable="true" ondragstart="drag(event)" alt="Jeans_1">
-                </div>
-              </div>
+	//array of objects returned from php
+	var clothesObjArray =<?php echo json_encode($clothesList) ?>;
 
-              <div class="col-lg-3 mb-4">
-                <div class="cardCreate h-100">
-                  <img class="card-img-top" src="clothes/newlook/Trousers_2.png" draggable="true" ondragstart="drag(event)" alt="pale-blue-long-sleeve-denim-shirt">
-                </div>
-              </div>
+	//function creates html takes two parameters which decide picture and and link on click
+	function createPicDiv(StorageLink, ShopLink){
+		let div1 = document.createElement("div");
+		div1.className = "col-lg-3 col-md-6 mb-4";
+		div1.style.display = "inline-block";
+		div1.style.height = 500;
 
-              <div class="col-lg-3 mb-4">
-                <div class="cardCreate h-100">
-                  <img class="card-img-top" src="clothes/newlook/Dress_2.png" draggable="true" ondragstart="drag(event)" alt="pale-blue-long-sleeve-denim-shirt">
-                </div>
-              </div>
+		let div2 = document.createElement("div");
+		div2.className = "cardshadow h-100";
 
-              <div class="col-lg-3 mb-4">
-                <div class="cardCreate h-100">
-                  <img class="card-img-top" src="clothes/h&m/Jacket_2.png" draggable="true" ondragstart="drag(event)" alt="pale-blue-long-sleeve-denim-shirt">
-                </div>
-              </div>
+		let image = new Image();
+		image.src = StorageLink;
+		image.className = "card-img-top" ;
+		image.onclick = function(){window.location.href = ShopLink};
+		image.style.height = 'auto';
+		image.style.width = 200;
 
-              <div class="col-lg-3 mb-4">
-                <div class="cardCreate h-100">
-                  <img class="card-img-top" src="pale-blue-long-sleeve-denim-shirt-.jpg" draggable="true" ondragstart="drag(event)" alt="pale-blue-long-sleeve-denim-shirt">
-                </div>
-              </div>
 
-              <div class="col-lg-3 mb-4">
-                <div class="cardCreate h-100">
-                  <img class="card-img-top" src="pale-blue-long-sleeve-denim-shirt-.jpg" draggable="true" ondragstart="drag(event)" alt="pale-blue-long-sleeve-denim-shirt">
-                </div>
-              </div>
+		let div3 = document.createElement("div");
+		div3.className = "card-footer";
 
-              <div class="col-lg-3 mb-4">
-                <div class="cardCreate h-100">
-                  <img class="card-img-top" src="pale-blue-long-sleeve-denim-shirt-.jpg" draggable="true" ondragstart="drag(event)" alt="pale-blue-long-sleeve-denim-shirt">
-                </div>
-              </div>
+    let favButton = document.createElement("favButton");
+		favButton.className = "btn btn-primary";
+	  favButton.innerHTML = "N/A";
+	  var link = StorageLink;
+	  //var bool = "t/f"
+	  favButton.onclick = function () {
 
-              <div class="col-lg-3 mb-4">
-                <div class="cardCreate h-100">
-                  <img class="card-img-top" src="pale-blue-long-sleeve-denim-shirt-.jpg" draggable="true" ondragstart="drag(event)" alt="pale-blue-long-sleeve-denim-shirt">
-                </div>
-              </div>
+      var isFavourite = "t/f";
+      if(favButton.innerHTML === "Add to favourites")
+        isFavourite = "false";
+      else if(favButton.innerHTML === "Remove from favourites")
+        isFavourite = "true";
+
+      $.post("fav-btn.php", {source: link, favs: isFavourite})
+       .done(function(data) {
+         alert("Data: " + data);
+         if(isFavourite === "true")
+            favButton.innerHTML = "Add to favourites";
+         else if (isFavourite === "false")
+            favButton.innerHTML = "Remove from favourites";
+       });
+	  };
+
+		fragment.appendChild(div1);
+		div1.appendChild(div2);
+		div2.appendChild(image);
+		div2.appendChild(div3);
+		div3.appendChild(favButton);
+		ye.appendChild(fragment);
+
+
+	  //After the webpage has loaded, execute this function
+	  window.addEventListener("load", function(){
+      $.post("newitems-fav.php", {source: link})
+       .done(function(data){bool = data;
+                         if (bool === "true")
+                   	      favButton.innerHTML = "Remove from favourites";
+                   	    else if (bool === "false")
+                   	      favButton.innerHTML = "Add to favourites";
+                   	    else
+                   	      favButton.innerHTML = "Change me";
+      });
+    });
+
+	}
+
+	var index;
+	for (index =0; index < clothesObjArray.length ; index++){
+		createPicDiv(clothesObjArray[index]['StorageLink'], clothesObjArray[index]['ShopLink']);
+	}
+
+
 
             </div>
           </div>
