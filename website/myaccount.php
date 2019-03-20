@@ -176,7 +176,7 @@
     <div class="outer">
       <h1 style="text-align: center; padding-bottom: 10px;">Welcome <?php echo $username; ?></h1>
 
-    <div class = "row">
+    <div class = "row text-center" style="height: 600px;">
 
 
       <div class="columnleft">
@@ -337,7 +337,7 @@
 
     <section once="" class="cid-rkenftQKle" id="footer7-6">
 
-      <div class="container">
+      <div class="container" style="bottom: 0px;">
           <div class="media-container-row align-center mbr-white">
               <div class="row row-links">
                 <ul class="foot-menu">
