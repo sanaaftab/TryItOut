@@ -349,38 +349,24 @@
   </div>
 </div>
 
-    <section once="" class="cid-rkenftQKle" id="footer7-6">
+<section once="" class="cid-rkenftQKle" id="footer7-6">
 
-      <div class="container" style="bottom: 0px;">
-          <div class="media-container-row align-center mbr-white">
-              <div class="row row-links">
-                <ul class="foot-menu">
-                  <li class="foot-menu-item mbr-fonts-style display-7">Developed by W1</li>
-                  <li class="foot-menu-item mbr-fonts-style display-7"><a  href = "Termandconditions.php">Terms &amp; Conditions</a></li>
-                  <li class="foot-menu-item mbr-fonts-style display-7">Contact Us</li>
-                  </ul>    </div>
-              <div class="row social-row">
-                  <div class="social-list align-right pb-2">
+  <div class="container">
+      <div class="media-container-row align-center mbr-white">
+          <div class="row row-links">
+              <ul class="foot-menu">
+              <li class="foot-menu-item mbr-fonts-style display-7">Developed by W1</li><li class="foot-menu-item mbr-fonts-style display-7"><a  href = "Termandconditions.html">Terms &amp; Conditions</a></li><li class="foot-menu-item mbr-fonts-style display-7">Contact Us</li>
+              <li class="foot-menu-item mbr-fonts-style display-7">Copyright Permission</li></ul>
 
-
-                  <div class="soc-item">
-                          <a href="https://gitlab.cs.man.ac.uk/n81233sa/Project.git" target="_blank">
-                              <span class="mbr-iconfont mbr-iconfont-social mbri-opened-folder" style="color: rgb(244, 133, 114); fill: rgb(244, 133, 114);"></span>
-                          </a>
-                      </div><div class="soc-item">
-                          <a href="https://www.facebook.com/pages/Mobirise/1616226671953247" target="_blank">
-                              <span class="mbr-iconfont mbr-iconfont-social mbrib-shopping-bag" style="color: rgb(244, 133, 114); fill: rgb(244, 133, 114);"></span>
-                          </a>
-                      </div></div>
-              </div>
-              <div class="row row-copirayt">
-                  <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
-                      © Copyright 2019 - All Rights Reserved
-                  </p>
-              </div>
+          </div>
+          <div class="row row-copirayt">
+              <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
+                  © Copyright 2019 - All Rights Reserved
+              </p>
           </div>
       </div>
-  </section>
+  </div>
+</section>
   </div>
 </div>
 
