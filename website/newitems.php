@@ -194,7 +194,6 @@
 
       $.post("fav-btn.php", {source: link, favs: isFavourite})
        .done(function(data) {
-         alert("Data: " + data);
          if(isFavourite === "true")
             favButton.innerHTML = "Add to favourites";
          else if (isFavourite === "false")
