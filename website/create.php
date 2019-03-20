@@ -49,16 +49,18 @@
 
     session_start();
 
+    $loggedIn = "true";
     if(!isset($_SESSION['uid'])) {
 		header("Location: login.html");
+      $loggedIn = "false";
 	}
 	else {
 		$uID = $_SESSION['uid'];
 	};
 
- 
- 
- 
+
+
+
   $clothesIDQuery = mysqli_prepare($connection,"SELECT ClothesID
 						 	                      FROM USERS_CLOTHES
 						 						  WHERE UserID = ?;");
@@ -128,7 +130,21 @@
         <a href="create.php" class="list-group-item list-group-item-action bg-light">Create</a>
         <a href="myaccount.php" class="list-group-item list-group-item-action bg-light">My Account</a>
       </div>
-      <button class="btn" style="position: absolute; bottom: 10px; width: 90%" >Login</button>
+      <button id="login/logout" class="btn" style="position: absolute; bottom: 10px; width: 90%" >Login</button>
+      <script>
+        var loginButton = document.getElementById("login/logout");
+        var isLoggedIn = "<?php echo $loggedIn; ?>";
+        if (isLoggedIn === "true")
+          loginButton.innerHTML = "Logout";
+
+        loginButton.addEventListener("click", function(){
+          if (loginButton.innerHTML === "Login")
+            window.location = "login.html";
+          else {
+            window.location = "logout.php";
+          }
+        });
+      </script>
     </div>
 
     <!-- Page content -->
@@ -197,7 +213,7 @@
           <div class="scroll">
             <div class="row text-center">
 
-             
+
 					<ye id="ye" >
           </ye>
 <script>
@@ -220,7 +236,7 @@
 		div2.className = "cardshadow h-100";
 
 		let image = new Image();
-   
+
 		image.src = StorageLink;
 		image.className = "card-img-top" ;
 		//image.onclick = function(){window.location.href = ShopLink};
@@ -237,7 +253,7 @@
 		div1.appendChild(div2);
 		div2.appendChild(image);
 		ye.appendChild(fragment);
-	 
+
 	}
 
 	var index, objArray;
@@ -245,7 +261,7 @@
     for (index =0; index < objArray.length ; index++){
       createPicDiv(objArray[index]['StorageLink']);
     }
-  } 
+  }
 
 </script>
 
