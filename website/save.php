@@ -1,10 +1,7 @@
 <?php
 
 	ini_set('display_errors', 1);
-	$hostname = "dbhost.cs.man.ac.uk";
-	$mysqlusername = "n33565af";
-	$mysqlpassword = "databasepass";
-	$dbName = "2018_comp10120_w1";
+	require_once('config.inc.php');
 
 	//make connection
 	$connection = new mysqli($hostname, $mysqlusername, $mysqlpassword, $dbName);

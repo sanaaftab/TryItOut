@@ -17,10 +17,7 @@
   <?php
 
 	ini_set('display_errors', 1);
-	$hostname = "dbhost.cs.man.ac.uk";
-	$mysqlusername = "n33565af";
-	$mysqlpassword = "databasepass";
-	$dbName = "2018_comp10120_w1";
+	require_once('config.inc.php');
 
 	//this script will return the directory address of the clothes with name of the clothes and store
 
@@ -31,7 +28,7 @@
 	{
 		die("Connection failed. ". mysqli_connect_error());
 	}
-    
+
     session_start();
     if(!isset($_SESSION['uid'])) {
 		header("Location: login.html");
@@ -74,16 +71,16 @@
 
 
 	mysqli_close($connection);
-  ?>	
+  ?>
 </head>
 <body>
           <ye id="ye" >
           </ye>
 <script>
-	
+
 	var element  = document.getElementById('ul');
 	var fragment = document.createDocumentFragment();
-	
+
 	//array of objects returned from php
 	var clothesLinks =<?php echo json_encode($clothesLinks) ?>;
 	 //function creates html takes two parameters which decide picture and and link on click
@@ -92,25 +89,25 @@
 		div1.className = "col-lg-3 col-md-6 mb-4";
 		div1.style.display = "inline-block";
 		div1.style.height = 500;
-		
+
 		let div2 = document.createElement("div");
 		div2.className = "cardshadow h-100";
-		
+
 		let image = new Image();
 		image.src = StorageLink;
 		image.className = "card-img-top" ;
 		image.style.height = 'auto';
 		image.style.width = 200;
-		
-		
+
+
 		let div3 = document.createElement("div");
 		div3.className = "card-footer";
-		
+
 		let favButton = document.createElement("a");
 		favButton.className = "btn btn-primary";
 		favButton.href = "#";
 		favButton.innerHTML = "Add to Favourites";
-			
+
 		fragment.appendChild(div1);
 		div1.appendChild(div2);
 		div2.appendChild(image);
@@ -118,20 +115,20 @@
 		div3.appendChild(favButton);
 		ye.appendChild(fragment);
 	}
-	
+
 	var index;
-	for (index = 0; index < clothesLinks.length ; index++){	
+	for (index = 0; index < clothesLinks.length ; index++){
 		createPicDiv(clothesLinks[index]);//, clothesObjArray[index]['ShopLink']);
 	}
-	
-	
-	
-	
-//	var test = "/clothes/h&m/Shirt_2.png";	
+
+
+
+
+//	var test = "/clothes/h&m/Shirt_2.png";
 //	document.getElementById("testImg").src = test;
-	
+
 	//for array length
-	//create html with unique id and pic associated with 
+	//create html with unique id and pic associated with
 </script>
 </body>
 

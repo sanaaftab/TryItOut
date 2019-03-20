@@ -27,10 +27,7 @@
   <?php
 
 	ini_set('display_errors', 1);
-	$hostname = "dbhost.cs.man.ac.uk";
-	$mysqlusername = "n33565af";
-	$mysqlpassword = "databasepass";
-	$dbName = "2018_comp10120_w1";
+	require_once('config.inc.php');
 
 	//this script will return the directory address of the clothes with name of the clothes and store
 
