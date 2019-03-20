@@ -187,17 +187,12 @@ body {
   margin-top: auto;
 }
 
-footer {
- display: block;
- width: 100%;
- background-color: #d9d9d9;
-}
 
-div.scroll {
-  width: auto;
-  height: 100%;
+.scroll {
+  width: 100%;
+  height: 700px;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 .display-none{
