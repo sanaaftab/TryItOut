@@ -219,7 +219,7 @@ function uploadImage() {
   }
 }
 
-function saveImage() {
+function saveImage(isPublic) {
   if (itemsBeingUsed.length < 1){
     alert("Atleast 1 item must be used");
     return;
@@ -233,8 +233,10 @@ function saveImage() {
 
   var imageAsDataURL = stage.toDataURL();
   var outfitURL;
+  
+  alert(isPublic);
 
-    $.post("save.php",{imageData: imageAsDataURL, urlsOfClothes: urlsOfItemsBeingUsed})
+    $.post("save.php",{imageData: imageAsDataURL, urlsOfClothes: urlsOfItemsBeingUsed, IsPublic: isPublic})
       .done(function(data){
         if(data.startsWith("outfit.php?o=")){
           outfitURL = data;

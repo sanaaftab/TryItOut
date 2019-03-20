@@ -96,8 +96,8 @@
             <a role="button"></a>
             <input class="btn" type="file" name="myImage" accept="image/*" />
             <button class="btn" onclick="uploadImage()">UPLOAD</button>
-            <button class="btn" onclick="saveImage()">SAVE</button>
-            <button class="btn" onclick="saveImage()">SAVE and SHARE</button>
+            <button class="btn" onclick="saveImage(0)">SAVE</button>
+            <button class="btn" onclick="saveImage(1)">SAVE and SHARE</button>
           </div>
 
         </div>

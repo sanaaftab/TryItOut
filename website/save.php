@@ -47,15 +47,17 @@
   fwrite($myfile, $data);
   fclose($myfile);
 
-	$query = $connection->prepare("INSERT INTO OUTFITS(UserID, StorageLink)
-												VALUES (?,?)");
+	$query = $connection->prepare("INSERT INTO OUTFITS(UserID, StorageLink, IsPublic)
+												VALUES (?,?,?)");
 	if($query == false)
 				echo "could not create user";
 
+
+  $IsPublic = $_POST["IsPublic"];
 	//binding parameters
 	session_start();
   $tempUserID = $_SESSION['uid'];
- 	$query->bind_param("ss", $tempUserID, $fileLocation);
+ 	$query->bind_param("sss", $tempUserID, $fileLocation, $IsPublic);
 	$query->execute();
 	echo mysqli_error($connection);
 
