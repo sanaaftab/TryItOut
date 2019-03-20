@@ -46,11 +46,9 @@
   
 	function backToLogin($message)
 	{
-    //ob_start();
-	  echo "Fatal error: $message ";
-	  //header('Location: login.html');
+	  echo "<script>alert('Fatal error: +".$message."');</script>";
+	  echo "<script>window.location.assign('http://localhost/Project/website/login.html');</script>";
 	  exit;
-	  //ob_end_flush();
 	}//backToLogin
   
 ?>
