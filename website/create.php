@@ -80,7 +80,7 @@
 			$clothesResult = mysqli_stmt_get_result($clothesQuery);
 			$linkRow = mysqli_fetch_assoc($clothesResult);
 			print_r(mysqli_fetch_row($clothesResult));
-			$clothesLinks[] = $linkRow['StorageLink'];
+			$clothesLinks[] = array("StorageLink" => $linkRow['StorageLink']);
 		}
 	}
 
@@ -220,7 +220,7 @@
 		div2.className = "cardshadow h-100";
 
 		let image = new Image();
-    image.id = idVal;
+   
 		image.src = StorageLink;
 		image.className = "card-img-top" ;
 		//image.onclick = function(){window.location.href = ShopLink};
@@ -232,7 +232,7 @@
 		let div3 = document.createElement("div");
 		div3.className = "card-footer";
 
-    
+    ye.removeChild(fragment);
 		fragment.appendChild(div1);
 		div1.appendChild(div2);
 		div2.appendChild(image);
@@ -240,8 +240,8 @@
 	 
 	}
 
-	var index;
-  function displayAll(objArr){
+	var index, objArray;
+  function displayAll(objArray){
     for (index =0; index < objArray.length ; index++){
       createPicDiv(objArray[index]['StorageLink']);
     }
