@@ -245,7 +245,7 @@
 		createPicDiv(clothesObjArray[index]['StorageLink'], clothesObjArray[index]['ShopLink']);
 	}
 
-
+</script>
 
             </div>
           </div>
