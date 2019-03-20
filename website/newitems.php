@@ -94,7 +94,7 @@
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
       <!--<div class="sidebar-heading">TRY IT OUT</div>-->
-      <img src = "logo.png" width = "250px">
+      <a href="explore.php"><img src="logo.png" width="250px"></a>
       <div class="list-group list-group-flush">
         <a href="explore.php" class="list-group-item list-group-item-action bg-light">Explore</a>
         <a href="newitems.php" class="list-group-item list-group-item-action bg-light">Clothes</a>
