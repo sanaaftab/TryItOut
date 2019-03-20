@@ -45,7 +45,7 @@
 
 	//SQL query to return all links in descending order
 	$sqlquery = "SELECT StorageLink, UserID
-				 FROM OUTFITS
+				 FROM OUTFITS WHERE IsPublic = 1
 				 ORDER BY OutfitID DESC;";
 
 	$result = mysqli_query($connection,$sqlquery) or die(mysqli_error($connection));
