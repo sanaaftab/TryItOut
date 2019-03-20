@@ -27,6 +27,14 @@
 
   <!-- JQuery -->
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <?php
+    session_start();
+
+    $loggedIn = "true";
+    if(!isset($_SESSION['uid'])) {
+      $loggedIn = "false";
+  	}
+  ?>
 </head>
 
 <body>
@@ -43,7 +51,21 @@
         <a href="create.php" class="list-group-item list-group-item-action bg-light">Create</a>
         <a href="myaccount.php" class="list-group-item list-group-item-action bg-light">My Account</a>
       </div>
-      <button class="btn" style="position: absolute; bottom: 10px; width: 90%" >Login</button>
+      <button id="login/logout" class="btn" style="position: absolute; bottom: 10px; width: 90%" >Login</button>
+      <script>
+        var loginButton = document.getElementById("login/logout");
+        var isLoggedIn = "<?php echo $loggedIn; ?>";
+        if (isLoggedIn === "true")
+          loginButton.innerHTML = "Logout";
+
+        loginButton.addEventListener("click", function(){
+          if (loginButton.innerHTML === "Login")
+            window.location = "login.html";
+          else {
+            window.location = "logout.php";
+          }
+        });
+      </script>
     </div>
 
     <!-- Page content -->
@@ -114,7 +136,7 @@
               <ul class="foot-menu">
 
                 <li class="foot-menu-item mbr-fonts-style display-7">Developed by W1</li>
-                <li class="foot-menu-item mbr-fonts-style display-7"><a  href = "Termandconditions.html">Terms &amp; Conditions</a></li>
+                <li class="foot-menu-item mbr-fonts-style display-7"><a  href = "Termandconditions.php">Terms &amp; Conditions</a></li>
                 <li class="foot-menu-item mbr-fonts-style display-7">Contact Us</li>
               </ul>
             </div>
