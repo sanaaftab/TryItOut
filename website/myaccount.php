@@ -188,7 +188,7 @@
 
 
     <div class="outer">
-      <h1 style="text-align: center; padding-bottom: 10px;">Welcome <?php echo $username; ?></h1>
+      <h1 style="text-align: center; padding-top: 15px; padding-bottom: 15px; font-size: 50px; color: #f48572;">WELCOME <?php echo $username; ?></h1>
 
     <div class = "row text-center" style="height: 900px;">
 
