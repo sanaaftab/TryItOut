@@ -245,7 +245,7 @@
 		let div3 = document.createElement("div");
 		div3.className = "card-footer";
 
-    fragment.parent.removeChild(fragment);
+    
 		fragment.appendChild(div1);
 		div1.appendChild(div2);
 		div2.appendChild(image);
@@ -255,6 +255,7 @@
 
 	var index, objArray;
   function displayAll(objArray){
+    fragment.parent.removeChild(fragment);
     for (index =0; index < objArray.length ; index++){
       createPicDiv(objArray[index]['StorageLink']);
     }
