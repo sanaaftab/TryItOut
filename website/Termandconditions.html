@@ -60,7 +60,7 @@
 
         loginButton.addEventListener("click", function(){
           if (loginButton.innerHTML === "Login")
-            window.location = "login.html";
+            window.location = "login.php";
           else {
             window.location = "logout.php";
           }

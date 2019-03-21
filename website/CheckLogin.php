@@ -56,7 +56,7 @@
 	else
 	{
 		echo "Password incorrect, try again";
-		header("Location: login.html");
+		header("Location: login.php");
 	}
 
 ?>

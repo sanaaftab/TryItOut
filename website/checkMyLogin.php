@@ -59,7 +59,7 @@
 	function backToLogin($message)
 	{
 	  echo "<script>alert('Fatal error: ".$message."');</script>";
-	  echo "<script>window.location.assign('login.html');</script>";
+	  echo "<script>window.location.assign('login.php');</script>";
 	  exit;
 	}//backToLogin
 

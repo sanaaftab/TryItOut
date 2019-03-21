@@ -47,7 +47,7 @@
 
   $loggedIn = "true";
   if(!isset($_SESSION['uid'])) {
-		header("Location: login.html");
+		header("Location: login.php");
     $loggedIn = "false";
 	}
 	else {
@@ -107,7 +107,7 @@
 
         loginButton.addEventListener("click", function(){
           if (loginButton.innerHTML === "Login")
-            window.location = "login.html";
+            window.location = "login.php";
           else {
             window.location = "logout.php";
           }
