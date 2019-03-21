@@ -255,7 +255,7 @@
 
 	var index, objArray;
   function displayAll(objArray){
-    
+    ye.innerHTML = '';
     for (index =0; index < objArray.length ; index++){
       createPicDiv(objArray[index]['StorageLink']);
     }
