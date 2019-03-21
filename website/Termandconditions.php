@@ -143,8 +143,6 @@
                   <li class="foot-menu-item mbr-fonts-style display-7">Developed by W1</li>
                   <li class="foot-menu-item mbr-fonts-style display-7"><a  href = "Termandconditions.php">Terms &amp; Conditions</a></li>
                   <li class="foot-menu-item mbr-fonts-style display-7"><a  href = "contactus.php">Contact Us</a></li>
-                  <li class="foot-menu-item mbr-fonts-style display-7"><a  href = "permission.php">Copyright Permission</a></li></ul>
-
               </div>
                 <div class="row row-copirayt">
                     <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
