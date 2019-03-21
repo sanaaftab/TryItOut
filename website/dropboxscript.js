@@ -234,7 +234,6 @@ function saveImage(isPublic) {
   var imageAsDataURL = stage.toDataURL();
   var outfitURL;
   
-  alert(isPublic);
 
     $.post("save.php",{imageData: imageAsDataURL, urlsOfClothes: urlsOfItemsBeingUsed, IsPublic: isPublic})
       .done(function(data){

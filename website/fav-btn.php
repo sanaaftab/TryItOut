@@ -1,9 +1,6 @@
 <?php
   ini_set('display_errors', 1);
-  $hostname = "dbhost.cs.man.ac.uk";
-  $username = "n33565af";
-  $password = "databasepass";
-  $dbName = "2018_comp10120_w1";
+  require_once('config.inc.php');
 
   //Make a conncection to the database
   $connection = new mysqli($hostname, $username, $password, $dbName);
@@ -54,7 +51,7 @@
   //Find userID
   session_start();
   $userID = $_SESSION['uid'];
-  
+
   echo "UserID: ".$userID."<br>";
   if ($favourite === "false")
   {
