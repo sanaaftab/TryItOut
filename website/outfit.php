@@ -124,6 +124,8 @@
           var isLoggedIn = <?php echo $loggedIn ?>;
 
           </script>
+          <div id="rmvBtn" style="padding-top: 30px">
+          </div>
         </div>
       </div>
 
