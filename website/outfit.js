@@ -86,11 +86,19 @@ if(outfitLocation){
           if (data == usersID){
 
             let buttonDiv = document.createElement("div");
-            list.appendChild(buttonDiv);
+            document.getElementById("rmvBtn").appendChild(buttonDiv);
 
             let rmvBtn = document.createElement("removeButton");
             rmvBtn.className = "btn btn-primary";
             rmvBtn.innerHTML = "Delete outfit";
+
+            rmvBtn.onclick = function(){
+              $.post("removeOutfit.php", {location: outfitLocation})
+                .done(function(data){
+                  alert(data);
+                  window.location = "myaccount.php";
+                });
+            }
 
             buttonDiv.appendChild(rmvBtn);
           }
