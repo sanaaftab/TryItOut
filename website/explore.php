@@ -175,7 +175,7 @@
 	//array of objects returned from php
 	var outfitsObjArray =<?php echo json_encode($outfitsList) ?>;
 	 //function creates html takes two parameters which decide picture and and link on click
-	function createPicDiv(StorageLink){
+	function createPicDiv(StorageLink, UserName){
 		let div1 = document.createElement("div");
 		div1.className = "col-lg-3 col-md-6 mb-4";
 		div1.style.display = "inline-block";
@@ -203,16 +203,21 @@
 		favButton.className = "btn btn-primary";
 		favButton.href = "#";
 		favButton.innerHTML = "Add to Favourites";
-
+        
+        let p = document.createElement("p");
+        p.className = "text-right";
+        p.innerHTML = "Uploaded by: " + UserName;
 		fragment.appendChild(div1);
 		div1.appendChild(div2);
 		div2.appendChild(image);
+		div2.appendChild(div3);
+		div3.appendChild(p);
 		ye.appendChild(fragment);
 	}
 
 	var index;
 	for (index = 0; index < outfitsObjArray.length ; index++){
-		createPicDiv(outfitsObjArray[index]['StorageLink']);//, clothesObjArray[index]['ShopLink']);
+		createPicDiv(outfitsObjArray[index]['StorageLink'], outfitsObjArray[index]['UserName']);//, clothesObjArray[index]['ShopLink']);
 	}
 
 
