@@ -204,7 +204,7 @@
         <div class="columnright">
 
           <div>
-            <button class="btn" onclick="displayAll(clothesObjArray)" >SHOW ALL</button>
+            <button class="btn active" onclick="displayAll(clothesObjArray)" >SHOW ALL</button>
             <button class="btn" onclick="displayAll(favClothesObjArray)" >FAVORITES</button>
           </div>
           <div class="scroll">
