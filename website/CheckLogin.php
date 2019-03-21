@@ -1,9 +1,7 @@
 <?php
 	ini_set('display_errors', 1);
-	$hostname = "dbhost.cs.man.ac.uk";
-	$mysqlusername = "n33565af";
-	$mysqlpassword = "databasepass";
-	$dbName = "2018_comp10120_w1";
+	require_once('config.inc.php');
+
 
 //this script compares the user input to associated login info in the User entity and then if it is correct will allow the user to login
 	//declaring vars being passed from client
