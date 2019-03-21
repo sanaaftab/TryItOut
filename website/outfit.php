@@ -111,7 +111,7 @@
 
         <!--************************The selection of clothes *****************************-->
         <div class="columnright">
-          <h3>Clothes used:</h3>
+          <h3 style="padding-top: 30px;">Clothes used:</h3>
           <div id="list">
 
           </div>

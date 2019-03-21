@@ -175,7 +175,7 @@
       </section>
 
 
-      <div class="row text-center">
+      <div class="row text-center" style="padding-top: 30px;">
         <!--************************For the drag and drop*****************************-->
         <div class="columnleft">
 
