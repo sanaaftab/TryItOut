@@ -4,13 +4,13 @@
 	//database connection information
 	ini_set('display_errors', 1);
 	require_once('config.inc.php');
-/*
+
 	//declaring vars being passed from client
 	$Username = $_POST["UsernamePost"];
 	$Email = $_POST["EmailPost"];
 	$Password = $_POST["PasswordPost"];
 	$PasswordCheck = $_POST["PasswordCheckPost"];
-*/
+
 	if ($Username === "" || $Email === "" || $Password === "" || $PasswordCheck === "")
     backToLogin('None of the fields can be left blank!');
   else if (filter_var($Email, FILTER_VALIDATE_EMAIL) === false)
