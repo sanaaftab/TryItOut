@@ -4,13 +4,13 @@
 	//database connection information
 	ini_set('display_errors', 1);
 	require_once('config.inc.php');
-
+/*
 	//declaring vars being passed from client
 	$Username = $_POST["UsernamePost"];
 	$Email = $_POST["EmailPost"];
 	$Password = $_POST["PasswordPost"];
 	$PasswordCheck = $_POST["PasswordCheckPost"];
-
+*/
 	if ($Username === "" || $Email === "" || $Password === "" || $PasswordCheck === "")
     backToLogin('None of the fields can be left blank!');
   else if (filter_var($Email, FILTER_VALIDATE_EMAIL) === false)
@@ -56,11 +56,13 @@
 		$_SESSION['userPass'] = $Password;
 		echo "<script>window.location.assign('autologin.php');</script>";
 	}
+	else
+	  backToLogin('Passwords do not match!');
 		
 	function backToLogin($message)
 	{
 	  echo "<script>alert('".$message."');</script>";
-	  echo "<script>window.location.assign('login.html');</script>";
+	  echo "<script>window.location.assign('login.php');</script>";
 	  exit;
 	}//backToLogin
 ?>
