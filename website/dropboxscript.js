@@ -23,7 +23,7 @@ var layer = new Konva.Layer();
 stage.add(layer);
 
 var pImage = new Image();
-pImage.src = 'assets/images/figure.jpg';
+pImage.src = 'assets/images/outline.jpg';
 pImage.onload = replaceImage;
 
 //------------------------------------------------------------------
@@ -233,7 +233,7 @@ function saveImage(isPublic) {
 
   var imageAsDataURL = stage.toDataURL();
   var outfitURL;
-  
+
 
     $.post("save.php",{imageData: imageAsDataURL, urlsOfClothes: urlsOfItemsBeingUsed, IsPublic: isPublic})
       .done(function(data){
