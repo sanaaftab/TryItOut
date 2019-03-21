@@ -3,7 +3,7 @@
   require_once('config.inc.php');
 
   //Make a conncection to the database
-  $connection = new mysqli($hostname, $username, $password, $dbName);
+  $connection = new mysqli($hostname, $mysqlusername, $mysqlpassword, $dbName);
 
   if ($connection->connect_error)
   {

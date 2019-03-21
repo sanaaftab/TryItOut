@@ -113,7 +113,7 @@
   ?>
 </head>
 
-<body>
+<body  onload="displayAll(clothesObjArray)">
   <!-- The navigation bar on the side containing links to the other pages -->
   <div class="d-flex" id="wrapper">
 
@@ -255,7 +255,7 @@
 
 	var index, objArray;
   function displayAll(objArray){
-    fragment.parent.removeChild(fragment);
+    ye.innerHTML = '';
     for (index =0; index < objArray.length ; index++){
       createPicDiv(objArray[index]['StorageLink']);
     }
