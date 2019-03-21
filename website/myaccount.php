@@ -209,7 +209,7 @@
 
 	//array of objects returned from php
 	var outfitsLinks =<?php echo json_encode($outfitsLinks) ?>;
-	function createPicDiv(StorageLink){
+	function createPicDiv1(StorageLink){
 		let div1 = document.createElement("div");
 		div1.className = "container";
 		div1.style.width = "100%";
@@ -219,6 +219,11 @@
 		let image = new Image();
 		image.src = StorageLink;
 		image.style.width = "100%";
+    image.onclick = function(){
+      var refNumber = StorageLink.split("/");
+      refNumber = refNumber[1].split(".")[0];
+      window.location.href = "outfit.php?o="+refNumber;
+    };
 
 		fragment.appendChild(div1);
 		div1.appendChild(div2);
@@ -228,7 +233,7 @@
 
 	var index;
 	for (index = 0; index < outfitsLinks.length ; index++){
-		createPicDiv(outfitsLinks[index])
+		createPicDiv1(outfitsLinks[index])
 	}
 </script>
 <!-- might need to remove this bottom feature entirely as im confused on how it works -->

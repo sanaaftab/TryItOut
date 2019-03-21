@@ -49,6 +49,9 @@ function displayInfo(location){
 
       var linkText = document.createElement("h4");
       linkText.innerHTML = window.location.href;
+      linkText.style.border = 'inset';
+      linkText.style.borderRadius = '0.5em';
+      linkText.style.display = 'inline';
 
       shareDiv.appendChild(text);
       shareDiv.appendChild(linkText);

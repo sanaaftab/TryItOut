@@ -226,7 +226,7 @@
 	  window.addEventListener("load", function(){
       $.post("newitems-fav.php", {source: link})
        .done(function(data){bool = data;
-                         if (bool === "true")
+                        if (bool === "true")
                    	      favButton.innerHTML = "Remove from favourites";
                    	    else if (bool === "false")
                    	      favButton.innerHTML = "Add to favourites";
