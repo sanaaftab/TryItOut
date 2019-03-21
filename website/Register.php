@@ -1,6 +1,6 @@
 <?php
-
-//this script will take user inputs and store in the user entity creating a new user for the website
+  session_start();
+  //this script will take user inputs and store in the user entity creating a new user for the website
 	//database connection information
 	ini_set('display_errors', 1);
 	require_once('config.inc.php');
@@ -46,22 +46,17 @@
 	{
 		//query to insert username and password to database
 		//preparing parameters to help prevent sql injection
-		$query = $connection->prepare("INSERT INTO USERS(Username, Password, Email)
-                										VALUES (?,?,?)");
-		if($query == false)
-			echo "Could not create new user";
-
-		//binding parameters
-		$query->bind_param("sss", $Username, $Password, $Email);
-
-		//query executed and closed
-		if (!$query->execute())
-			backToLogin('Execution failed: ('.$query->errno.')'.$query->error);
-		else
-		  header('Location: explore.php');
+		$newUserQuery = mysqli_prepare($connection, "INSERT INTO `USERS`(`Username`, `Password`, `Email`) VALUES (?,?,?)");
+    mysqli_stmt_bind_param($newUserQuery, "sss", $Username, $Password, $Email);
+    mysqli_stmt_execute($newUserQuery);
+    mysqli_stmt_close($newUserQuery); 
+		//Sign-Up was succesfull, automatically log in the user.
+		echo "<script>alert('Sign-Up was succesful!');</script>";
+		$_SESSION['userEmail'] = $Email;
+		$_SESSION['userPass'] = $Password;
+		echo "<script>window.location.assign('autologin.php');</script>";
 	}
-		mysqli_stmt_close($query);
-
+		
 	function backToLogin($message)
 	{
 	  echo "<script>alert('".$message."');</script>";
