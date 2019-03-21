@@ -79,4 +79,21 @@ if(outfitLocation){
         displayInfo(outfitLocation);
       }
     });
+
+    if (isLoggedIn){
+      $.post("getUserID.php",{location: outfitLocation})
+        .done(function(data){
+          if (data == usersID){
+
+            let buttonDiv = document.createElement("div");
+            list.appendChild(buttonDiv);
+
+            let rmvBtn = document.createElement("removeButton");
+            rmvBtn.className = "btn btn-primary";
+            rmvBtn.innerHTML = "Delete outfit";
+
+            buttonDiv.appendChild(rmvBtn);
+          }
+      });
+    }
 }
