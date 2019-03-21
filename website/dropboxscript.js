@@ -23,7 +23,7 @@ var layer = new Konva.Layer();
 stage.add(layer);
 
 var pImage = new Image();
-pImage.src = '../test/person.jpg';
+pImage.src = 'assets/images/figure.jpg';
 pImage.onload = replaceImage;
 
 //------------------------------------------------------------------
