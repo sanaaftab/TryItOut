@@ -190,7 +190,7 @@
     <div class="outer">
       <h1 style="text-align: center; padding-bottom: 10px;">Welcome <?php echo $username; ?></h1>
 
-    <div class = "row text-center" style="height: 600px;">
+    <div class = "row text-center" style="height: 900px;">
 
 
       <div class="columnleft">
