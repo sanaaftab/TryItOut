@@ -113,7 +113,7 @@
   ?>
 </head>
 
-<body>
+<body  onload="displayAll(clothesObjArray)">
   <!-- The navigation bar on the side containing links to the other pages -->
   <div class="d-flex" id="wrapper">
 
@@ -204,7 +204,7 @@
         <div class="columnright">
 
           <div>
-            <button class="btn" <script>displayAll(clothesObjArray); </script> onclick="displayAll(clothesObjArray)" >SHOW ALL</button>
+            <button class="btn" onclick="displayAll(clothesObjArray)" >SHOW ALL</button>
             <button class="btn" onclick="displayAll(favClothesObjArray)" >FAVORITES</button>
           </div>
           <div class="scroll">
