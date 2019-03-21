@@ -1,16 +1,14 @@
 <?php
 	ini_set('display_errors', 1);
-	$hostname = "dbhost.cs.man.ac.uk";
-	$mysqlusername = "n33565af";
-	$mysqlpassword = "databasepass";
-	$dbName = "2018_comp10120_w1";
-	
+	require_once('config.inc.php');
+
+
 	$Email = $_POST["EmailPost"];
 	$Password = $_POST["PasswordPost"];
 	//Check if any data has been entered first
 	if ($Email === "" || $Password === "")
     backToLogin('Email and Password can not be left blank!');
-	  
+
 	//make connection
 	$connection = new mysqli($hostname, $mysqlusername, $mysqlpassword, $dbName);
 	//check connection
@@ -52,17 +50,17 @@
     {
       backToLogin('Wrong password!');
     }
-  } 
+  }
   else
   {
     backToLogin('Wrong email!');
   }
-  
+
 	function backToLogin($message)
 	{
 	  echo "<script>alert('Fatal error: ".$message."');</script>";
 	  echo "<script>window.location.assign('login.html');</script>";
 	  exit;
 	}//backToLogin
-  
+
 ?>
