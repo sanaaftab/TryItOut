@@ -241,7 +241,7 @@
 		image.style.height = 'auto';
 		image.style.width = 200;
     image.draggable = 'true';
-    image.addEventListener("dragstart", function() {drag(event)}, false);
+    image.addEventListener("dragstart", drag, false);
 
 		let div3 = document.createElement("div");
 		div3.className = "card-footer";
