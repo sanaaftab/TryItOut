@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	  <link rel="icon" href="icon.png" type="image/png">
 	<title>Login</title>
 
 	<!--Bootsrap 4.3.0-->

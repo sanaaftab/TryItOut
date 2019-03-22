@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+    <link rel="icon" href="icon.png" type="image/png">
   <!-- This tag adds a title to the page -->
   <title>Contact Us</title>
   <!-- Bootstrap core CSS -->
