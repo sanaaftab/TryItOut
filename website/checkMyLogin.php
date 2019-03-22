@@ -4,7 +4,7 @@
 
 
 	$Email = $_POST["EmailPost"];
-	$Password = $_POST["PasswordPost"];
+	$Password = md5($_POST["PasswordPost"]);
 	//Check if any data has been entered first
 	if ($Email === "" || $Password === "")
     backToLogin('Email and Password can not be left blank!');
