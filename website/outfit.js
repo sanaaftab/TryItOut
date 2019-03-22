@@ -62,7 +62,6 @@ var outfitLocation = getQueryVariable("o");
 if(outfitLocation){
   outfitLocation = "outfits/" + outfitLocation + ".png";
   var image1 = document.getElementById("outfit");
-  image1.src = outfitLocation;
 
   //find and display the creator
   creator = document.getElementById("creator");
@@ -74,6 +73,7 @@ if(outfitLocation){
         creator.style.padding = "200px 10px 200px";
       }
       else {
+        image1.src = outfitLocation;
         creator.innerHTML = "Created by: " + data;
         creator.style.padding = "15px 10px 15px";
         displayInfo(outfitLocation);
