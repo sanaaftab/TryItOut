@@ -8,8 +8,8 @@
 	//declaring vars being passed from client
 	$Username = $_POST["UsernamePost"];
 	$Email = $_POST["EmailPost"];
-	$Password = $_POST["PasswordPost"];
-	$PasswordCheck = $_POST["PasswordCheckPost"];
+	$Password = md5($_POST["PasswordPost"]);
+	$PasswordCheck = md5($_POST["PasswordCheckPost"]);
 
 	if ($Username === "" || $Email === "" || $Password === "" || $PasswordCheck === "")
     backToLogin('None of the fields can be left blank!');
